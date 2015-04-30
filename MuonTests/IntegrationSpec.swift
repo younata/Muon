@@ -43,6 +43,7 @@ class IntegrationSpec: QuickSpec {
                     let buildDate = "Tue, 14 Apr 2015 10:00:00 PDT"
                     let date = rssDateFormatter.dateFromString(buildDate)
                     expect(feed.lastUpdated).to(equal(date))
+                    expect(feed.copyright).to(equal("Copyright 2015, Apple Inc."))
                 }
             }
 
@@ -198,22 +199,53 @@ class IntegrationSpec: QuickSpec {
             it("should parse the feed") {
                 expect(feed).toNot(beNil())
                 if let feed = feed {
-                    expect(feed.title).to(equal("Example Feed"))
-                    expect(feed.link).to(equal(NSURL(string: "http://example.org/")))
-                    let date = atomDateFormatter.dateFromString("2003-12-13T18:30:02Z")
+                    expect(feed.title).to(equal("dive into mark"))
+                    expect(feed.description).to(equal("a <em>lot</em> of offert went into make this effortless"))
+                    expect(feed.link).to(equal(NSURL(string: "http://example.org/feed.atom")))
+                    let date = atomDateFormatter.dateFromString("2005-07-31T12:29:29Z")
                     expect(feed.lastUpdated).to(equal(date))
+                    expect(feed.copyright).to(equal("Copyright (c) 2003, Mark Pilgrim"))
                 }
             }
 
             it("should parse the feed's items") {
-                expect(feed?.articles.count).to(equal(1))
+                expect(feed?.articles.count).to(equal(2))
                 if let article = feed?.articles.first {
-                    expect(article.title).to(equal("Atom-Powered Robots Run Amok"))
-                    expect(article.link).to(equal(NSURL(string: "http://example.org/2003/12/13/atom03")))
-                    expect(article.guid).to(equal("1225c695-cfb8-4ebb-aaaa-80da344efa6a"))
-                    let date = atomDateFormatter.dateFromString("2003-12-13T18:30:02Z")
-                    expect(article.updated).to(equal(date))
-                    expect(article.description).to(equal("Some text."))
+                    expect(article.title).to(equal("Atom draft-07 snapshot"))
+                    expect(article.link).to(equal(NSURL(string: "http://example.org/2005/04/02/atom")))
+                    expect(article.guid).to(equal("tag:example.org,2003:3.2397"))
+                    let updated = atomDateFormatter.dateFromString("2005-07-31T12:29:29Z")
+                    expect(article.updated).to(equal(updated))
+                    let published = atomDateFormatter.dateFromString("2003-12-13T08:29:29-04:00")
+                    expect(article.published).to(equal(published))
+                    expect(article.content).to(equal("<div xmlns=\"http://www.w3.org/1999/xhtml\"> <p><i>[Update: The Atom draft is finished.]</i></p> </div>"))
+                    expect(article.enclosures.count).to(equal(1))
+                    expect(article.authors.count).to(equal(2))
+                    if let author = article.authors.first {
+                        expect(author.name).to(equal("Mark Pilgrim"))
+                        expect(author.email).to(equal(NSURL(string: "mailto: f8dy@example.com")))
+                        expect(author.uri).to(equal(NSURL(string: "http://example.org")))
+                    }
+                    if let author = article.authors.last {
+                        expect(author.name).to(equal("Sam Ruby"))
+                        expect(author.email).to(beNil())
+                        expect(author.uri).to(beNil())
+                    }
+                }
+                if let article = feed?.articles.last {
+                    // applying the default feed's authors to the feed.
+                    expect(article.title).to(equal("Atom 2"))
+                    expect(article.authors.count).to(equal(2))
+                    if let author = article.authors.first {
+                        expect(author.name).to(equal("Mark Pilgrim"))
+                        expect(author.email).to(equal(NSURL(string: "mailto: f8dy@example.com")))
+                        expect(author.uri).to(equal(NSURL(string: "http://example.org")))
+                    }
+                    if let author = article.authors.last {
+                        expect(author.name).to(equal("Some Person"))
+                        expect(author.email).to(beNil())
+                        expect(author.uri).to(beNil())
+                    }
                 }
             }
         }

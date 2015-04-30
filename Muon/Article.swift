@@ -1,11 +1,34 @@
-public class Article {
-    public private(set) var title : String? = nil
-    public private(set) var link : NSURL? = nil
-    public private(set) var guid : String? = nil
-    public private(set) var description : String? = nil
-    public private(set) var published : NSDate? = nil
-    public private(set) var updated : NSDate? = nil
-    public private(set) var content : String? = nil
+public struct Article {
+    public let title : String?
+    public let link : NSURL?
+    public let guid : String?
+    public let description : String?
+    public let published : NSDate?
+    public let updated : NSDate?
+    public let content : String?
 
-    public private(set) var enclosures : [Enclosure] = []
+    public private(set) var authors : [Author]
+    public private(set) var enclosures : [Enclosure]
+
+    init(title: String? = nil, link: NSURL? = nil, description: String? = nil, content: String? = nil, guid: String? = nil,
+         published: NSDate? = nil, updated: NSDate? = nil, authors: [Author] = [], enclosures: [Enclosure] = []) {
+        self.title = title
+        self.link = link
+        self.description = description
+        self.guid = guid
+        self.published = published
+        self.updated = updated
+        self.content = content
+
+        self.authors = authors
+        self.enclosures = enclosures
+    }
+
+    mutating func addAuthor(author: Author) {
+        self.authors.append(author)
+    }
+
+    mutating func addEnclosure(enclosure: Enclosure) {
+        self.enclosures.append(enclosure)
+    }
 }

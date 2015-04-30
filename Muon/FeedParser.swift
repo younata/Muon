@@ -1,6 +1,6 @@
 import Foundation
 
-public class FeedParser: NSObject, NSXMLParserDelegate {
+public class FeedParser: NSOperation, NSXMLParserDelegate {
     public var parseHeaderOnly : Bool = false
 
     var feed : Feed? = nil
@@ -47,10 +47,6 @@ public class FeedParser: NSObject, NSXMLParserDelegate {
             
         }
 //        feedParser.feedParseType = parseInfoOnly ? ParseTypeInfoOnly : ParseTypeFull
-        let queue = NSOperationQueue.currentQueue() ?? NSOperationQueue.mainQueue()
-        queue.addOperationWithBlock {
-            return
-        }
     }
 
     public func parserDidEndDocument(parser: NSXMLParser) {
