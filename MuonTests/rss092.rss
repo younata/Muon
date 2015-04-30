@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!-- RSS generation done by 'Radio UserLand' on Fri, 13 Apr 2001 19:23:02 GMT -->
+<rss version="0.92">
+    <channel>
+        <title>Dave Winer: Grateful Dead</title>
+        <link>http://www.scripting.com/blog/categories/gratefulDead.html</link>
+        <description>A high-fidelity Grateful Dead song every day. This is where we're experimenting with enclosures on RSS news items that download when you're not using your computer. If it works (it will) it will be the end of the Click-And-Wait multimedia experience on the Internet. </description>
+        <lastBuildDate>Fri, 13 Apr 2001 19:23:02 GMT</lastBuildDate>
+        <docs>http://backend.userland.com/rss092</docs>
+        <managingEditor>dave@userland.com (Dave Winer)</managingEditor>
+        <webMaster>dave@userland.com (Dave Winer)</webMaster>
+        <cloud domain="data.ourfavoritesongs.com" port="80" path="/RPC2" registerProcedure="ourFavoriteSongs.rssPleaseNotify" protocol="xml-rpc"/>
+        <item>
+            <description>Moshe Weitzman says Shakedown Street is what I'm lookin for for tonight. I'm listening right now. It's one of my favorites. "Don't tell me this town ain't got no heart." Too bright. I like the jazziness of Weather Report Suite. Dreamy and soft. How about The Other One? "Spanish lady come to me.."</description>
+            <source url="http://scriptingnews.userland.com/xml/scriptingNews2.xml">Scripting News</source>
+        </item>
+        <item>
+            <description>&lt;a href="http://www.scripting.com/mp3s/youWinAgain.mp3"&gt;The news is out&lt;/a&gt;, all over town..&lt;p&gt;
+                You've been seen, out runnin round. &lt;p&gt;
+                The lyrics are &lt;a href="http://www.cs.cmu.edu/~mleone/gdead/dead-lyrics/You_Win_Again.txt"&gt;here&lt;/a&gt;, short and sweet. &lt;p&gt;
+                &lt;i&gt;You win again!&lt;/i&gt;
+            </description>
+            <enclosure url="http://www.scripting.com/mp3s/youWinAgain.mp3" length="3874816" type="audio/mpeg"/>
+        </item>
+    </channel>
+</rss>
