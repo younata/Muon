@@ -1,12 +1,4 @@
-//
-//  Muon.h
-//  Muon
-//
-//  Created by Rachel Brindle on 4/17/15.
-//  Copyright (c) 2015 rachelbrindle. All rights reserved.
-//
-
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for Muon.
 FOUNDATION_EXPORT double MuonVersionNumber;

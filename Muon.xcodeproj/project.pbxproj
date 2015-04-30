@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8967016C1AF1747C00BCD0DD /* IntegrationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8967016B1AF1747C00BCD0DD /* IntegrationSpec.swift */; };
+		8967016E1AF1749300BCD0DD /* researchkit.atom in Resources */ = {isa = PBXBuildFile; fileRef = 8967016D1AF1749300BCD0DD /* researchkit.atom */; };
 		898EFBF81AE21B5100DD1F09 /* Muon.h in Headers */ = {isa = PBXBuildFile; fileRef = 898EFBF71AE21B5100DD1F09 /* Muon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		898EFBFE1AE21B5100DD1F09 /* Muon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898EFBF21AE21B5100DD1F09 /* Muon.framework */; };
-		898EFC051AE21B5300DD1F09 /* MuonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EFC041AE21B5300DD1F09 /* MuonTests.swift */; };
+		898EFC101AE21C8D00DD1F09 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898EFC0E1AE21C8D00DD1F09 /* Nimble.framework */; };
+		898EFC111AE21C8D00DD1F09 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898EFC0F1AE21C8D00DD1F09 /* Quick.framework */; };
+		898EFC131AE21CA600DD1F09 /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 898EFC0E1AE21C8D00DD1F09 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		898EFC141AE21CA600DD1F09 /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 898EFC0F1AE21C8D00DD1F09 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		898EFC161AE2233000DD1F09 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EFC151AE2233000DD1F09 /* Feed.swift */; };
+		898EFC181AE2234400DD1F09 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EFC171AE2234400DD1F09 /* Article.swift */; };
+		898EFC1A1AE2234C00DD1F09 /* Enclosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EFC191AE2234C00DD1F09 /* Enclosure.swift */; };
+		898EFC1C1AE223EF00DD1F09 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EFC1B1AE223EF00DD1F09 /* FeedParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,13 +31,35 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		898EFC121AE21C9A00DD1F09 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				898EFC131AE21CA600DD1F09 /* Nimble.framework in Copy Frameworks */,
+				898EFC141AE21CA600DD1F09 /* Quick.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		8967016B1AF1747C00BCD0DD /* IntegrationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationSpec.swift; sourceTree = "<group>"; };
+		8967016D1AF1749300BCD0DD /* researchkit.atom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = researchkit.atom; sourceTree = "<group>"; };
 		898EFBF21AE21B5100DD1F09 /* Muon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Muon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		898EFBF61AE21B5100DD1F09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		898EFBF71AE21B5100DD1F09 /* Muon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Muon.h; sourceTree = "<group>"; };
 		898EFBFD1AE21B5100DD1F09 /* MuonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		898EFC031AE21B5200DD1F09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		898EFC041AE21B5300DD1F09 /* MuonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuonTests.swift; sourceTree = "<group>"; };
+		898EFC0E1AE21C8D00DD1F09 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
+		898EFC0F1AE21C8D00DD1F09 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
+		898EFC151AE2233000DD1F09 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		898EFC171AE2234400DD1F09 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		898EFC191AE2234C00DD1F09 /* Enclosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enclosure.swift; sourceTree = "<group>"; };
+		898EFC1B1AE223EF00DD1F09 /* FeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +75,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				898EFBFE1AE21B5100DD1F09 /* Muon.framework in Frameworks */,
+				898EFC101AE21C8D00DD1F09 /* Nimble.framework in Frameworks */,
+				898EFC111AE21C8D00DD1F09 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				898EFBF71AE21B5100DD1F09 /* Muon.h */,
+				898EFC1B1AE223EF00DD1F09 /* FeedParser.swift */,
+				898EFC151AE2233000DD1F09 /* Feed.swift */,
+				898EFC171AE2234400DD1F09 /* Article.swift */,
+				898EFC191AE2234C00DD1F09 /* Enclosure.swift */,
 				898EFBF51AE21B5100DD1F09 /* Supporting Files */,
 			);
 			path = Muon;
@@ -88,8 +125,11 @@
 		898EFC011AE21B5100DD1F09 /* MuonTests */ = {
 			isa = PBXGroup;
 			children = (
-				898EFC041AE21B5300DD1F09 /* MuonTests.swift */,
+				8967016B1AF1747C00BCD0DD /* IntegrationSpec.swift */,
+				8967016D1AF1749300BCD0DD /* researchkit.atom */,
 				898EFC021AE21B5200DD1F09 /* Supporting Files */,
+				898EFC0E1AE21C8D00DD1F09 /* Nimble.framework */,
+				898EFC0F1AE21C8D00DD1F09 /* Quick.framework */,
 			);
 			path = MuonTests;
 			sourceTree = "<group>";
@@ -141,6 +181,7 @@
 				898EFBF91AE21B5100DD1F09 /* Sources */,
 				898EFBFA1AE21B5100DD1F09 /* Frameworks */,
 				898EFBFB1AE21B5100DD1F09 /* Resources */,
+				898EFC121AE21C9A00DD1F09 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -159,7 +200,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0630;
-				ORGANIZATIONNAME = rachelbrindle;
+				ORGANIZATIONNAME = "Rachel Brindle";
 				TargetAttributes = {
 					898EFBF11AE21B5100DD1F09 = {
 						CreatedOnToolsVersion = 6.3;
@@ -199,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8967016E1AF1749300BCD0DD /* researchkit.atom in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +251,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				898EFC1C1AE223EF00DD1F09 /* FeedParser.swift in Sources */,
+				898EFC1A1AE2234C00DD1F09 /* Enclosure.swift in Sources */,
+				898EFC181AE2234400DD1F09 /* Article.swift in Sources */,
+				898EFC161AE2233000DD1F09 /* Feed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				898EFC051AE21B5300DD1F09 /* MuonTests.swift in Sources */,
+				8967016C1AF1747C00BCD0DD /* IntegrationSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +369,7 @@
 		898EFC091AE21B5300DD1F09 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -332,12 +379,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		898EFC0A1AE21B5300DD1F09 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -353,9 +402,11 @@
 		898EFC0C1AE21B5300DD1F09 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -364,15 +415,18 @@
 				INFOPLIST_FILE = MuonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		898EFC0D1AE21B5300DD1F09 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = MuonTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -399,6 +453,7 @@
 				898EFC0A1AE21B5300DD1F09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		898EFC0B1AE21B5300DD1F09 /* Build configuration list for PBXNativeTarget "MuonTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +462,7 @@
 				898EFC0D1AE21B5300DD1F09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

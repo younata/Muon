@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<atom:link href="" rel="self" type="application/rss+xml" />
+<title>ResearchKit Blog - ResearchKit.org</title>
+<link>http://researchkit.org/blog.html</link>
+<description>Get the latest news and helpful tips on ResearchKit.</description>
+<language>en-US</language>
+<lastBuildDate>Tue, 14 Apr 2015 10:00:00 PDT</lastBuildDate>
+<generator>Custom</generator>
+<copyright>Copyright 2015, Apple Inc.</copyright>
+
+<item>
+<title>Welcome to ResearchKit!</title>
+<link>http://researchkit.org/blog.html#article-1</link>
+<guid>http://researchkit.org/blog.html#article-1</guid>
+<description> On March 9, Apple introduced the world to  ResearchKit , a new software framework designed for health and medical research that helps doctors and scientists gather data more frequently and more accurately from participants using iPhone apps. Today, we’re excited to make ResearchKit available as open source so that researchers can more easily develop their own research apps and leverage the visual consent flows, real time dynamic active tasks and surveys that are included in the framework. Now that it’s available as open source, researchers all over the world will be able to contribute new modules to the framework, like activities around cognition or mood, and share them with the global research community to further advance what we know about disease.  This new blog will provide researchers and engineers all over the world with a simple forum for sharing tips on how to take advantage of the ResearchKit framework. It’s also a great place to check-in for news and updates from studies utilizing ResearchKit and hear from researchers directly about new studies and modules in development.  You can get started with ResearchKit by visiting  GitHub , now available to all developers for free under the ResearchKit BSD license. Be sure to check out the  Overview  tab for great links to  documentation  and  sample code  to help you start building your research app today. You can even share your favorite modules with the global research community by creating an issue or claiming an existing one from our issue list and send us a pull request.  We can’t wait to see what we discover together!  - The ResearchKit Team </description>
+<pubDate>Tue, 14 Apr 2015 10:00:00 PDT</pubDate>
+<content:encoded><![CDATA[<p>On March 9, Apple introduced the world to <a href="http://www.apple.com/researchkit/">ResearchKit</a>, a new software framework designed for health and medical research that helps doctors and scientists gather data more frequently and more accurately from participants using iPhone apps. Today, we’re excited to make ResearchKit available as open source so that researchers can more easily develop their own research apps and leverage the visual consent flows, real time dynamic active tasks and surveys that are included in the framework. Now that it’s available as open source, researchers all over the world will be able to contribute new modules to the framework, like activities around cognition or mood, and share them with the global research community to further advance what we know about disease.</p><p>This new blog will provide researchers and engineers all over the world with a simple forum for sharing tips on how to take advantage of the ResearchKit framework. It’s also a great place to check-in for news and updates from studies utilizing ResearchKit and hear from researchers directly about new studies and modules in development.</p><p>You can get started with ResearchKit by visiting <a href="https://github.com/ResearchKit/ResearchKit">GitHub</a>, now available to all developers for free under the ResearchKit BSD license. Be sure to check out the <a href="index.html">Overview</a> tab for great links to <a href="docs/docs/Overview/GuideOverview.html">documentation</a> and <a href="https://github.com/ResearchKit/ResearchKit/tree/master/samples/ORKCatalog">sample code</a> to help you start building your research app today. You can even share your favorite modules with the global research community by creating an issue or claiming an existing one from our issue list and send us a pull request.</p><p>We can’t wait to see what we discover together!</p><p>- The ResearchKit Team</p>]]></content:encoded>
+</item>
+
+</channel>
+</rss>
