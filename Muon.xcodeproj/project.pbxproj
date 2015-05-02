@@ -25,6 +25,8 @@
 		89BBC1131AF1EC06006025AA /* rss100.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1121AF1EC06006025AA /* rss100.rss */; };
 		89BBC1151AF1EC36006025AA /* atom100.xml in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1141AF1EC36006025AA /* atom100.xml */; };
 		89BBC1171AF2BCA0006025AA /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BBC1161AF2BCA0006025AA /* Author.swift */; };
+		89E9C20F1AF495A400620A55 /* String+Muon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C20E1AF495A400620A55 /* String+Muon.swift */; };
+		89E9C2111AF4987D00620A55 /* StringExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C2101AF4987D00620A55 /* StringExtensionSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		89BBC1121AF1EC06006025AA /* rss100.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rss100.rss; sourceTree = "<group>"; };
 		89BBC1141AF1EC36006025AA /* atom100.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = atom100.xml; sourceTree = "<group>"; };
 		89BBC1161AF2BCA0006025AA /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		89E9C20E1AF495A400620A55 /* String+Muon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Muon.swift"; sourceTree = "<group>"; };
+		89E9C2101AF4987D00620A55 /* StringExtensionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 				898EFC171AE2234400DD1F09 /* Article.swift */,
 				89BBC1161AF2BCA0006025AA /* Author.swift */,
 				898EFC191AE2234C00DD1F09 /* Enclosure.swift */,
+				89E9C20E1AF495A400620A55 /* String+Muon.swift */,
 				898EFBF51AE21B5100DD1F09 /* Supporting Files */,
 			);
 			path = Muon;
@@ -139,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				8967016B1AF1747C00BCD0DD /* IntegrationSpec.swift */,
+				89E9C2101AF4987D00620A55 /* StringExtensionSpec.swift */,
 				8967016D1AF1749300BCD0DD /* researchkit.rss */,
 				89BBC10C1AF1EB2D006025AA /* rss091.rss */,
 				89BBC10E1AF1EB4E006025AA /* rss092.rss */,
@@ -279,6 +285,7 @@
 				898EFC181AE2234400DD1F09 /* Article.swift in Sources */,
 				898EFC161AE2233000DD1F09 /* Feed.swift in Sources */,
 				89BBC1171AF2BCA0006025AA /* Author.swift in Sources */,
+				89E9C20F1AF495A400620A55 /* String+Muon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8967016C1AF1747C00BCD0DD /* IntegrationSpec.swift in Sources */,
+				89E9C2111AF4987D00620A55 /* StringExtensionSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

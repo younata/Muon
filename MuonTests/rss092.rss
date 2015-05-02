@@ -15,11 +15,7 @@
             <source url="http://scriptingnews.userland.com/xml/scriptingNews2.xml">Scripting News</source>
         </item>
         <item>
-            <description>&lt;a href="http://www.scripting.com/mp3s/youWinAgain.mp3"&gt;The news is out&lt;/a&gt;, all over town..&lt;p&gt;
-                You've been seen, out runnin round. &lt;p&gt;
-                The lyrics are &lt;a href="http://www.cs.cmu.edu/~mleone/gdead/dead-lyrics/You_Win_Again.txt"&gt;here&lt;/a&gt;, short and sweet. &lt;p&gt;
-                &lt;i&gt;You win again!&lt;/i&gt;
-            </description>
+            <description>&lt;a href="http://www.scripting.com/mp3s/youWinAgain.mp3"&gt;The news is out&lt;/a&gt;, all over town..&lt;p&gt;You've been seen, out runnin round. &lt;p&gt;The lyrics are &lt;a href="http://www.cs.cmu.edu/~mleone/gdead/dead-lyrics/You_Win_Again.txt"&gt;here&lt;/a&gt;, short and sweet. &lt;p&gt;&lt;i&gt;You win again!&lt;/i&gt;</description>
             <enclosure url="http://www.scripting.com/mp3s/youWinAgain.mp3" length="3874816" type="audio/mpeg"/>
         </item>
     </channel>
