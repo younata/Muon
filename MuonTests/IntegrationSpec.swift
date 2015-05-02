@@ -167,7 +167,7 @@ class IntegrationSpec: QuickSpec {
                     expect(feed.link).to(equal(NSURL(string: "http://liftoff.msfc.nasa.gov/")))
                     expect(feed.description).to(equal("Liftoff to Space Exploration."))
                     expect(feed.language).to(equal(NSLocale(localeIdentifier: "en-us")))
-                    let date = rssDateFormatter.dateFromString("Tue, 10 Jun 2003 09:41:01 GMT")
+                    let date = "Tue, 10 Jun 2003 09:41:01 GMT".RFC822Date()
                     expect(feed.lastUpdated).to(equal(date))
                 }
             }
@@ -178,7 +178,7 @@ class IntegrationSpec: QuickSpec {
                     expect(article.title).to(equal("Star City"))
                     expect(article.link).to(equal(NSURL(string: "http://liftoff.msfc.nasa.gov/news/2003/news-starcity.asp")))
                     expect(article.description).to(equal("How do Americans get ready to work with Russians aboard the International Space Station? They take a crash course in culture, language and protocol at Russia's <a href=\"http://howe.iki.rssi.ru/GCTC/gctc_e.htm\">Star City</a>."))
-                    let date = rssDateFormatter.dateFromString("Tue, 03 Jun 2003 09:39:21 GMT")
+                    let date = "Tue, 03 Jun 2003 09:39:21 GMT".RFC822Date()
                     expect(article.published).to(equal(date))
                     expect(article.guid).to(equal("http://liftoff.msfc.nasa.gov/2003/06/03.html#item573"))
                 }

@@ -103,13 +103,14 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
 
     public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
         let name = qName?.rangeOfString("content") != nil ? "content" : elementName
-        currentPath.append(name)
+        currentPath.append(name.lowercaseString)
         if elementName == "channel" {
             feedHelper = FeedHelper()
         } else if elementName == "item" {
             articleHelper = ArticleHelper()
         }
         lastAttributes = attributeDict
+        // enclosure for RSS 2.0-compatible feeds
         if currentPath == ["rss", "channel", "item", "enclosure"] {
             if let url = NSURL(string: attributeDict["url"] as? String ?? ""),
                let type = attributeDict["type"] as? String,
@@ -118,12 +119,16 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
                 enclosures.append(enclosure)
             }
         }
+        // image for RSS 1.0-compatible feeds
+        if let imageURL = attributeDict["rdf:resource"] as? String where currentPath == ["rdf", "channel", "image"] {
+            feedHelper.imageURL = imageURL
+        }
     }
 
     public func parser(parser: NSXMLParser, foundCharacters string: String?) {
         if let str = string, currentItem = currentPath.last {
-//            println("Found characters on path \(currentPath)")
-            if currentPath.count == 3 && currentPath[1] == "channel" {
+            println("Found characters on path \(currentPath)")
+            if currentPath.count == 3 && currentPath[1] == "channel" { // RSS 1.0 & RSS 2.0 feed
                 switch (currentItem) {
                 case "title":
                     feedHelper.title += str
@@ -133,19 +138,20 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
                     feedHelper.description += str
                 case "language":
                     feedHelper.language += str
-                case "lastBuildDate":
+                case "lastbuilddate":
                     feedHelper.lastUpdated += str
                 case "copyright":
                     feedHelper.copyright += str
                 default: break
                 }
-            } else if currentPath.count == 4 && currentPath[1] == "channel" && currentPath[2] == "image" {
+            } else if currentPath.count == 4 && currentPath[1] == "channel" && currentPath[2] == "image" { // RSS 2.0 image
                 switch (currentItem) {
                 case "url":
                     feedHelper.imageURL += str
                 default: break
                 }
-            } else if currentPath.count == 4 && currentPath[2] == "item" {
+            } else if currentPath.count == 4 && currentPath[2] == "item" { // RSS 2.0-based
+//                println("Found characters '\(str)' on path \(currentPath)")
                 switch (currentItem) {
                 case "title":
                     articleHelper.title += str
@@ -155,10 +161,20 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
                     articleHelper.guid += str
                 case "description":
                     articleHelper.description += str
-                case "pubDate":
+                case "pubdate":
                     articleHelper.published += str
                 case "content":
                     articleHelper.content += str
+                default: break
+                }
+            } else if currentPath.count > 2 && currentPath.first == "rdf" && currentPath[1] == "item" { // RSS 1.0-Based
+                switch (currentItem) {
+                case "title":
+                    articleHelper.title += str
+                case "link":
+                    articleHelper.link += str
+                case "description":
+                    articleHelper.description += str
                 default: break
                 }
             }
@@ -174,7 +190,7 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
 
     public func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         for (idx, item) in enumerate(currentPath.reverse()) {
-            if item == elementName {
+            if item == elementName.lowercaseString {
                 currentPath.removeAtIndex(currentPath.count - (idx + 1))
                 break
             }
@@ -203,7 +219,12 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
             let updated = articleHelper.updated.RFC822Date()
 
             let article = Article(title: title, link: link, description: description, content: content, guid: guid, published: published, updated: updated, authors: [], enclosures: enclosures)
-            articles.append(article)
+
+            if currentPath.first == "rdf" {
+                feed?.addArticle(article)
+            } else if currentPath.first == "rss" {
+                articles.append(article)
+            }
             enclosures = []
         }
         lastAttributes = [:]

@@ -34,21 +34,13 @@
     <item rdf:about="http://xml.com/pub/2000/08/09/xslt/xslt.html">
         <title>Processing Inclusions with XSLT</title>
         <link>http://xml.com/pub/2000/08/09/xslt/xslt.html</link>
-        <description>
-            Processing document inclusions with general XML tools can be
-            problematic. This article proposes a way of preserving inclusion
-            information through SAX-based processing.
-        </description>
+        <description>Processing document inclusions with general XML tools can be problematic. This article proposes a way of preserving inclusion information through SAX-based processing.</description>
     </item>
 
     <item rdf:about="http://xml.com/pub/2000/08/09/rdfdb/index.html">
         <title>Putting RDF to Work</title>
         <link>http://xml.com/pub/2000/08/09/rdfdb/index.html</link>
-        <description>
-            Tool and API support for the Resource Description Framework
-            is slowly coming of age. Edd Dumbill takes a look at RDFDB,
-            one of the most exciting new RDF toolkits.
-        </description>
+        <description>Tool and API support for the Resource Description Framework is slowly coming of age. Edd Dumbill takes a look at RDFDB, one of the most exciting new RDF toolkits.</description>
     </item>
 
     <textinput rdf:about="http://search.xml.com">
