@@ -89,6 +89,8 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
     private var articleHelper = ArticleHelper()
     private var articles : [Article] = []
 
+    private var enclosures : [Enclosure] = []
+
     private struct ArticleHelper {
         var title : String = ""
         var link : String = ""
@@ -108,11 +110,19 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
             articleHelper = ArticleHelper()
         }
         lastAttributes = attributeDict
+        if currentPath == ["rss", "channel", "item", "enclosure"] {
+            if let url = NSURL(string: attributeDict["url"] as? String ?? ""),
+               let type = attributeDict["type"] as? String,
+               let lenStr = attributeDict["length"] as? String, let length = lenStr.toInt() {
+                let enclosure = Enclosure(url: url, length: length, type: type)
+                enclosures.append(enclosure)
+            }
+        }
     }
 
     public func parser(parser: NSXMLParser, foundCharacters string: String?) {
         if let str = string, currentItem = currentPath.last {
-//            println("Found characters on path \(currentPath) with attributes \(lastAttributes)")
+//            println("Found characters on path \(currentPath)")
             if currentPath.count == 3 && currentPath[1] == "channel" {
                 switch (currentItem) {
                 case "title":
@@ -192,8 +202,9 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
             let published = articleHelper.published.RFC822Date()
             let updated = articleHelper.updated.RFC822Date()
 
-            let article = Article(title: title, link: link, description: description, content: content, guid: guid, published: published, updated: updated)
+            let article = Article(title: title, link: link, description: description, content: content, guid: guid, published: published, updated: updated, authors: [], enclosures: enclosures)
             articles.append(article)
+            enclosures = []
         }
         lastAttributes = [:]
     }
