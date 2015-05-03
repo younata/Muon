@@ -112,70 +112,36 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
         lastAttributes = attributeDict
         // enclosure for RSS 2.0-compatible feeds
         if currentPath == ["rss", "channel", "item", "enclosure"] {
-            if let url = NSURL(string: attributeDict["url"] as? String ?? ""),
-               let type = attributeDict["type"] as? String,
-               let lenStr = attributeDict["length"] as? String, let length = lenStr.toInt() {
-                let enclosure = Enclosure(url: url, length: length, type: type)
-                enclosures.append(enclosure)
-            }
+            parseRSSEnclosure(attributeDict)
         }
         // image for RSS 1.0-compatible feeds
         if let imageURL = attributeDict["rdf:resource"] as? String where currentPath == ["rdf", "channel", "image"] {
-            feedHelper.imageURL = imageURL
+            parseChannel("image", str: imageURL)
+        }
+        if let currentElement = currentPath.last where currentPath.first == "feed" && attributeDict.count != 0 { // Atom makes extensive use of attributes
+            parseAtomItem(currentElement, attributeDict: attributeDict)
         }
     }
 
     public func parser(parser: NSXMLParser, foundCharacters string: String?) {
         if let str = string, currentItem = currentPath.last {
-            println("Found characters on path \(currentPath)")
-            if currentPath.count == 3 && currentPath[1] == "channel" { // RSS 1.0 & RSS 2.0 feed
-                switch (currentItem) {
-                case "title":
-                    feedHelper.title += str
-                case "link":
-                    feedHelper.link += str
-                case "description":
-                    feedHelper.description += str
-                case "language":
-                    feedHelper.language += str
-                case "lastbuilddate":
-                    feedHelper.lastUpdated += str
-                case "copyright":
-                    feedHelper.copyright += str
-                default: break
+            if currentPath.first == "rss" || currentPath.first == "rdf" {
+                if currentPath.count == 3 && currentPath[1] == "channel" { // RSS 1.0 & RSS 2.0 feed
+                    parseChannel(currentItem, str: str)
+                } else if currentPath.count == 4 && currentPath[1] == "channel" && currentPath[2] == "image" { // RSS 2.0 image
+                    if currentItem == "url" && !str.hasOnlyWhitespace() {
+                        parseChannel("image", str: str)
+                    }
+                } else if currentPath.count == 4 && currentPath[2] == "item" { // RSS 2.0 item
+                    parseItem(currentItem, str: str)
+                } else if currentPath.count > 2 && currentPath.first == "rdf" && currentPath[1] == "item" { // RSS 1.0 item
+                    parseItem(currentItem, str: str)
                 }
-            } else if currentPath.count == 4 && currentPath[1] == "channel" && currentPath[2] == "image" { // RSS 2.0 image
-                switch (currentItem) {
-                case "url":
-                    feedHelper.imageURL += str
-                default: break
-                }
-            } else if currentPath.count == 4 && currentPath[2] == "item" { // RSS 2.0-based
-//                println("Found characters '\(str)' on path \(currentPath)")
-                switch (currentItem) {
-                case "title":
-                    articleHelper.title += str
-                case "link":
-                    articleHelper.link += str
-                case "guid":
-                    articleHelper.guid += str
-                case "description":
-                    articleHelper.description += str
-                case "pubdate":
-                    articleHelper.published += str
-                case "content":
-                    articleHelper.content += str
-                default: break
-                }
-            } else if currentPath.count > 2 && currentPath.first == "rdf" && currentPath[1] == "item" { // RSS 1.0-Based
-                switch (currentItem) {
-                case "title":
-                    articleHelper.title += str
-                case "link":
-                    articleHelper.link += str
-                case "description":
-                    articleHelper.description += str
-                default: break
+            } else if currentPath.first == "feed" {
+                if contains(currentPath, "entry") {
+                    parseItem(currentItem, str: str)
+                } else {
+                    parseChannel(currentItem, str: str)
                 }
             }
         }
@@ -197,18 +163,18 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
         }
         let rssDateFormatter = NSDateFormatter()
         rssDateFormatter.dateFormat = "EEE, dd MMM yyyy hh:mm:ss zzz"
-        if elementName == "channel" {
+        if elementName == "channel" || elementName == "feed" {
             // parse and create a feed
             let link = NSURL(string: feedHelper.link)!
             let language = stringOrNil(feedHelper.language)
             let locale : NSLocale? = language != nil ? NSLocale(localeIdentifier: feedHelper.language) : nil
-            let lastUpdated = feedHelper.lastUpdated.RFC822Date()
+            let lastUpdated = feedHelper.lastUpdated.RFC822Date() ?? feedHelper.lastUpdated.RFC3339Date()
             let pubDate = feedHelper.publicationDate.RFC822Date()
             let copyright = stringOrNil(feedHelper.copyright)
             let imageURL = NSURL(string: feedHelper.imageURL)
             feed = Feed(title: feedHelper.title, link: link, description: feedHelper.description, articles: articles, language: locale,
                         lastUpdated: lastUpdated, publicationDate: pubDate, imageURL: imageURL, copyright: copyright)
-        } else if elementName == "item" {
+        } else if elementName == "item" || elementName == "entry" {
             // parse and create an article
             let title = stringOrNil(articleHelper.title)
             let link = articleHelper.link != "" ? NSURL(string: articleHelper.link) : nil
@@ -220,9 +186,9 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
 
             let article = Article(title: title, link: link, description: description, content: content, guid: guid, published: published, updated: updated, authors: [], enclosures: enclosures)
 
-            if currentPath.first == "rdf" {
+            if currentPath.first == "rdf" { // RSS 1.0
                 feed?.addArticle(article)
-            } else if currentPath.first == "rss" {
+            } else if currentPath.first == "rss" || currentPath.first == "feed" { // RSS 2.0 and Atom
                 articles.append(article)
             }
             enclosures = []
@@ -230,22 +196,58 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
         lastAttributes = [:]
     }
 
-//    func feedParser(parser: MWFeedParser!, didParseFeedInfo info: MWFeedInfo!) {
-//        self.info = info
-//        if parseInfoOnly {
-//            parser.stopParsing()
-//        }
-//    }
+    private func parseChannel(currentElement: String, str: String) {
+        switch (currentElement) {
+        case "title":
+            feedHelper.title += str
+        case "link":
+            feedHelper.link += str
+        case "description", "subtitle":
+            feedHelper.description += str
+        case "language":
+            feedHelper.language += str
+        case "lastbuilddate", "updated":
+            feedHelper.lastUpdated += str
+        case "copyright", "rights":
+            feedHelper.copyright += str
+        case "image":
+            feedHelper.imageURL += str.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        default: break
+        }
+    }
 
-//    func feedParser(parser: MWFeedParser!, didParseFeedItem item: MWFeedItem!) {
-//        self.items.append(item)
-//    }
+    private func parseItem(currentElement: String, str: String) {
+        switch (currentElement) {
+        case "title":
+            articleHelper.title += str
+        case "link":
+            articleHelper.link += str
+        case "guid":
+            articleHelper.guid += str
+        case "description":
+            articleHelper.description += str
+        case "pubdate":
+            articleHelper.published += str
+        case "content":
+            articleHelper.content += str
+        default: break
+        }
+    }
 
-//    func feedParserDidFinish(parser: MWFeedParser!) {
-//        if let i = info {
-//            dispatch_async(dispatch_get_main_queue()) {
-//                self.completion(i, self.items)
-//            }
-//        }
-//    }
+    private func parseAtomItem(currentElement: String, attributeDict: [NSObject: AnyObject]) {
+        if !contains(currentPath, "entry") {
+            if let rel = attributeDict["rel"] as? String, let href = attributeDict["href"] as? String where currentElement == "link" && rel == "self" {
+                feedHelper.link = href
+            }
+        }
+    }
+
+    private func parseRSSEnclosure(attributeDict: [NSObject: AnyObject]) {
+        if let url = NSURL(string: attributeDict["url"] as? String ?? ""),
+            let type = attributeDict["type"] as? String,
+            let lenStr = attributeDict["length"] as? String, let length = lenStr.toInt() {
+                let enclosure = Enclosure(url: url, length: length, type: type)
+                enclosures.append(enclosure)
+        }
+    }
 }

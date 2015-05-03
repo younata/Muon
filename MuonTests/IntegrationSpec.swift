@@ -201,7 +201,7 @@ class IntegrationSpec: QuickSpec {
                 }
             }
 
-            xit("should parse the feed's items") {
+            it("should parse the feed's items") {
                 expect(feed?.articles.count).to(equal(2))
                 if let article = feed?.articles.first {
                     expect(article.title).to(equal("Atom draft-07 snapshot"))
