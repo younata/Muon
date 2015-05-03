@@ -42,4 +42,23 @@ public extension String {
         }
         return date
     }
+
+    public func RFC3339Date() -> NSDate? {
+        var date : NSDate? = nil
+        let upper = uppercaseString.stringByReplacingOccurrencesOfString("Z", withString: "-0000")
+        let str = upper
+
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+
+        var dateFromFormat : (String) -> NSDate? = {formatString in
+            dateFormatter.dateFormat = formatString
+            return dateFormatter.dateFromString(str)
+        }
+
+        date = dateFromFormat("yyyy'-'MM'-'dd'T'HH':'mm':'sszzz")
+        if date == nil { date = dateFromFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSzzz") }
+        if date == nil { date = dateFromFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ss") }
+        return date
+    }
 }
