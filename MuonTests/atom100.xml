@@ -13,7 +13,7 @@
     <icon>http://example.org/icon.gif</icon>
     <author>
         <name>Mark Pilgrim</name>
-        <uri>http://example.org/</uri>
+        <uri>http://example.org</uri>
         <email>f8dy@example.com</email>
     </author>
     <contributor>
@@ -29,7 +29,7 @@
         <rights>Copyright (c) 2003, Mark Pilgrim</rights>
         <author>
             <name>Mark Pilgrim</name>
-            <uri>http://example.org/</uri>
+            <uri>http://example.org</uri>
             <email>f8dy@example.com</email>
         </author>
         <contributor>

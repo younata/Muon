@@ -216,7 +216,7 @@ class IntegrationSpec: QuickSpec {
                     expect(article.authors.count).to(equal(2))
                     if let author = article.authors.first {
                         expect(author.name).to(equal("Mark Pilgrim"))
-                        expect(author.email).to(equal(NSURL(string: "mailto: f8dy@example.com")))
+                        expect(author.email).to(equal(NSURL(string: "f8dy@example.com")))
                         expect(author.uri).to(equal(NSURL(string: "http://example.org")))
                     }
                     if let author = article.authors.last {
@@ -231,7 +231,7 @@ class IntegrationSpec: QuickSpec {
                     expect(article.authors.count).to(equal(2))
                     if let author = article.authors.first {
                         expect(author.name).to(equal("Mark Pilgrim"))
-                        expect(author.email).to(equal(NSURL(string: "mailto: f8dy@example.com")))
+                        expect(author.email).to(equal(NSURL(string: "f8dy@example.com")))
                         expect(author.uri).to(equal(NSURL(string: "http://example.org")))
                     }
                     if let author = article.authors.last {
