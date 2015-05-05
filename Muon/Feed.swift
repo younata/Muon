@@ -11,7 +11,7 @@ public struct Feed {
 
     public private(set) var articles : [Article] = []
 
-    init(title: String, link: NSURL, description : String, articles: [Article], language: NSLocale? = nil,
+    public init(title: String, link: NSURL, description : String, articles: [Article], language: NSLocale? = nil,
          lastUpdated : NSDate? = nil, publicationDate : NSDate? = nil, imageURL: NSURL? = nil, copyright: String? = nil) {
         self.title = title
         self.link = link
@@ -26,7 +26,7 @@ public struct Feed {
         self.imageURL = imageURL
     }
 
-    mutating func addArticle(article : Article) {
+    public mutating func addArticle(article : Article) {
         self.articles.append(article)
     }
 }

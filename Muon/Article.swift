@@ -10,7 +10,7 @@ public struct Article {
     public private(set) var authors : [Author]
     public private(set) var enclosures : [Enclosure]
 
-    init(title: String? = nil, link: NSURL? = nil, description: String? = nil, content: String? = nil, guid: String? = nil,
+    public init(title: String? = nil, link: NSURL? = nil, description: String? = nil, content: String? = nil, guid: String? = nil,
          published: NSDate? = nil, updated: NSDate? = nil, authors: [Author] = [], enclosures: [Enclosure] = []) {
         self.title = title
         self.link = link
@@ -24,11 +24,11 @@ public struct Article {
         self.enclosures = enclosures
     }
 
-    mutating func addAuthor(author: Author) {
+    public mutating func addAuthor(author: Author) {
         self.authors.append(author)
     }
 
-    mutating func addEnclosure(enclosure: Enclosure) {
+    public mutating func addEnclosure(enclosure: Enclosure) {
         self.enclosures.append(enclosure)
     }
 }
