@@ -211,7 +211,7 @@ class IntegrationSpec: QuickSpec {
                     expect(article.updated).to(equal(updated))
                     let published = "2003-12-13T08:29:29-04:00".RFC3339Date()
                     expect(article.published).to(equal(published))
-                    expect(article.content).to(equal("<div xmlns=\"http://www.w3.org/1999/xhtml\"> <p><i>[Update: The Atom draft is finished.]</i></p> </div>"))
+                    expect(article.content).to(equal("<div><p><i>[Update: The Atom draft is finished.]</i></p></div>"))
                     expect(article.enclosures.count).to(equal(1))
                     expect(article.authors.count).to(equal(2))
                     if let author = article.authors.first {

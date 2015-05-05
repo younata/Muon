@@ -11,7 +11,7 @@ public extension String {
 
         // Process
         var date : NSDate? = nil
-        let str = uppercaseString
+        let str = uppercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
 
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
@@ -45,8 +45,7 @@ public extension String {
 
     public func RFC3339Date() -> NSDate? {
         var date : NSDate? = nil
-        let upper = uppercaseString.stringByReplacingOccurrencesOfString("Z", withString: "-0000")
-        let str = upper
+        let str = uppercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).stringByReplacingOccurrencesOfString("Z", withString: "-0000")
 
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
@@ -60,5 +59,13 @@ public extension String {
         if date == nil { date = dateFromFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSSzzz") }
         if date == nil { date = dateFromFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ss") }
         return date
+    }
+
+    public func escapeHtml() -> String{
+        var result = stringByReplacingOccurrencesOfString("&", withString: "&amp;")
+        result = result.stringByReplacingOccurrencesOfString("\"", withString: "&quot;")
+        result = result.stringByReplacingOccurrencesOfString("'", withString: "&#39;")
+        result = result.stringByReplacingOccurrencesOfString("<", withString: "&lt;")
+        return result.stringByReplacingOccurrencesOfString(">", withString: "&gt;")
     }
 }

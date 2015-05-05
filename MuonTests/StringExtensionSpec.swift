@@ -98,5 +98,12 @@ class StringExtensionSpec: QuickSpec {
                 }
             }
         }
+
+        describe("Escaping HTML strings") {
+            it("should safely escape them") {
+                let escaped = "&lt;hello world&gt; &quot;this&quot; &#39;is&#39; &amp; escaped"
+                expect("<hello world> \"this\" 'is' & escaped".escapeHtml()).to(equal(escaped))
+            }
+        }
     }
 }

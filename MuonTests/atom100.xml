@@ -35,19 +35,11 @@
         <contributor>
             <name>Sam Ruby</name>
         </contributor>
-        <content type="xhtml" xml:lang="en" xml:base="http://diveintomark.org/">
-            <div xmlns="http://www.w3.org/1999/xhtml">
-                <p><i>[Update: The Atom draft is finished.]</i></p>
-            </div>
-        </content>
+        <content type="xhtml" xml:lang="en" xml:base="http://diveintomark.org/"><div xmlns="http://www.w3.org/1999/xhtml"><p><i>[Update: The Atom draft is finished.]</i></p></div></content>
     </entry>
     <entry>
         <title>Atom 2</title>
         <rights>Copyright (c) 2003, Mark Pilgrim</rights>
-        <content type="xhtml" xml:lang="en" xml:base="http://diveintomark.org/">
-            <div xmlns="http://www.w3.org/1999/xhtml">
-            <p><i>[Update: The Atom draft is finished.]</i></p>
-            </div>
-        </content>
+        <content type="xhtml" xml:lang="en" xml:base="http://diveintomark.org/"><div xmlns="http://www.w3.org/1999/xhtml"><p><i>[Update: The Atom draft is finished.]</i></p></div></content>
     </entry>
 </feed>
