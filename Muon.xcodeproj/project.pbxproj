@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		8967016C1AF1747C00BCD0DD /* IntegrationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8967016B1AF1747C00BCD0DD /* IntegrationSpec.swift */; };
 		8967016E1AF1749300BCD0DD /* researchkit.rss in Resources */ = {isa = PBXBuildFile; fileRef = 8967016D1AF1749300BCD0DD /* researchkit.rss */; };
+		8981316E1AFC745F0090FA7F /* PerformanceSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8981316D1AFC745F0090FA7F /* PerformanceSpecs.swift */; };
+		898131701AFC75270090FA7F /* atom_large.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8981316F1AFC75270090FA7F /* atom_large.xml */; };
+		898131721AFC75430090FA7F /* rss1_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131711AFC75430090FA7F /* rss1_large.rss */; };
+		898131741AFC75530090FA7F /* rss2_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131731AFC75530090FA7F /* rss2_large.rss */; };
 		898EFBF81AE21B5100DD1F09 /* Muon.h in Headers */ = {isa = PBXBuildFile; fileRef = 898EFBF71AE21B5100DD1F09 /* Muon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		898EFBFE1AE21B5100DD1F09 /* Muon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898EFBF21AE21B5100DD1F09 /* Muon.framework */; };
 		898EFC101AE21C8D00DD1F09 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898EFC0E1AE21C8D00DD1F09 /* Nimble.framework */; };
@@ -57,6 +61,10 @@
 /* Begin PBXFileReference section */
 		8967016B1AF1747C00BCD0DD /* IntegrationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationSpec.swift; sourceTree = "<group>"; };
 		8967016D1AF1749300BCD0DD /* researchkit.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = researchkit.rss; sourceTree = "<group>"; };
+		8981316D1AFC745F0090FA7F /* PerformanceSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceSpecs.swift; sourceTree = "<group>"; };
+		8981316F1AFC75270090FA7F /* atom_large.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = atom_large.xml; sourceTree = "<group>"; };
+		898131711AFC75430090FA7F /* rss1_large.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rss1_large.rss; sourceTree = "<group>"; };
+		898131731AFC75530090FA7F /* rss2_large.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rss2_large.rss; sourceTree = "<group>"; };
 		898EFBF21AE21B5100DD1F09 /* Muon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Muon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		898EFBF61AE21B5100DD1F09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		898EFBF71AE21B5100DD1F09 /* Muon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Muon.h; sourceTree = "<group>"; };
@@ -144,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				8967016B1AF1747C00BCD0DD /* IntegrationSpec.swift */,
+				8981316D1AFC745F0090FA7F /* PerformanceSpecs.swift */,
 				89E9C2101AF4987D00620A55 /* StringExtensionSpec.swift */,
 				8967016D1AF1749300BCD0DD /* researchkit.rss */,
 				89BBC10C1AF1EB2D006025AA /* rss091.rss */,
@@ -151,6 +160,9 @@
 				89BBC1121AF1EC06006025AA /* rss100.rss */,
 				89BBC1101AF1EB70006025AA /* rss200.rss */,
 				89BBC1141AF1EC36006025AA /* atom100.xml */,
+				898131711AFC75430090FA7F /* rss1_large.rss */,
+				898131731AFC75530090FA7F /* rss2_large.rss */,
+				8981316F1AFC75270090FA7F /* atom_large.xml */,
 				898EFC021AE21B5200DD1F09 /* Supporting Files */,
 				898EFC0E1AE21C8D00DD1F09 /* Nimble.framework */,
 				898EFC0F1AE21C8D00DD1F09 /* Quick.framework */,
@@ -268,8 +280,11 @@
 				89BBC10D1AF1EB2D006025AA /* rss091.rss in Resources */,
 				89BBC10F1AF1EB4E006025AA /* rss092.rss in Resources */,
 				89BBC1111AF1EB70006025AA /* rss200.rss in Resources */,
+				898131741AFC75530090FA7F /* rss2_large.rss in Resources */,
+				898131701AFC75270090FA7F /* atom_large.xml in Resources */,
 				8967016E1AF1749300BCD0DD /* researchkit.rss in Resources */,
 				89BBC1151AF1EC36006025AA /* atom100.xml in Resources */,
+				898131721AFC75430090FA7F /* rss1_large.rss in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8967016C1AF1747C00BCD0DD /* IntegrationSpec.swift in Sources */,
+				8981316E1AFC745F0090FA7F /* PerformanceSpecs.swift in Sources */,
 				89E9C2111AF4987D00620A55 /* StringExtensionSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
