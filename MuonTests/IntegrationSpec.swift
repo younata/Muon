@@ -18,7 +18,7 @@ class IntegrationSpec: QuickSpec {
             parser.failure { parseError = $0; expectation.fulfill() }
 
             parser.main()
-            self.waitForExpectationsWithTimeout(10, handler: { _ in });
+            self.waitForExpectationsWithTimeout(10, handler: { _ in })
             return parser
         }
 

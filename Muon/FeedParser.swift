@@ -1,17 +1,11 @@
 import Foundation
 
 public class FeedParser: NSOperation, NSXMLParserDelegate {
-    public var parseHeaderOnly : Bool = false
-
-    var feed : Feed? = nil
-
-    var parser : NSXMLParser? = nil
-
     public var completion : (Feed) -> Void = {_ in }
     public var onFailure : (NSError) -> Void = {_ in }
 
-    private let content : NSData
-    private let contentString : String
+    private var content : NSData? = nil
+    private var contentString : String? = nil
 
     public func success(onSuccess: (Feed) -> Void) -> FeedParser {
         completion = onSuccess
@@ -25,8 +19,17 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
 
     public init(string: String) {
         contentString = string
-        content = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+        content = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         super.init()
+    }
+
+    public override init() {
+        super.init()
+    }
+
+    public func configureWithString(string: String) {
+        contentString = string
+        content = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
     }
 
     // MARK - NSOperation
@@ -47,13 +50,18 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
     }
 
     private func parse() {
-        let parser = NSXMLParser(data: content)
-        self.parser = parser
-        parser.delegate = self
-        parser.shouldProcessNamespaces = true
-        currentPath = []
-        articles = []
-        parser.parse()
+        if let content = content {
+            let parser = NSXMLParser(data: content)
+            self.parser = parser
+            parser.delegate = self
+            parser.shouldProcessNamespaces = true
+            currentPath = []
+            articles = []
+            parser.parse()
+        } else {
+            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Must be configured with data"])
+            self.onFailure(error)
+        }
     }
 
     public func parserDidEndDocument(parser: NSXMLParser) {
@@ -69,6 +77,9 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
         self.parser = nil
         self.onFailure(parseError)
     }
+
+    private var feed : Feed? = nil
+    private var parser : NSXMLParser? = nil
 
     var currentPath : [String] = []
     var parseStructureAsContent = false
