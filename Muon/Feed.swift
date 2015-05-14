@@ -1,23 +1,25 @@
-public struct Feed {
-    public let title : String
-    public let link : NSURL
-    public let description : String
-    public let language : NSLocale?
-    public let lastUpdated : NSDate?
-    public let publicationDate : NSDate?
-    public let copyright : String?
+@objc public class Feed {
+    @objc public let title : String
+    @objc public let link : NSURL
+    @objc public let description : String
+    @objc public let language : NSLocale?
+    @objc public let lastUpdated : NSDate?
+    @objc public let publicationDate : NSDate?
+    @objc public let copyright : String?
 
-    public let imageURL : NSURL?
+    @objc public let imageURL : NSURL?
 
-    public private(set) var articles : [Article] = []
+    private var internalArticles : [Article] = []
 
-    public init(title: String, link: NSURL, description : String, articles: [Article], language: NSLocale? = nil,
+    @objc public var articles : [Article] { return internalArticles }
+
+    @objc public init(title: String, link: NSURL, description : String, articles: [Article], language: NSLocale? = nil,
          lastUpdated : NSDate? = nil, publicationDate : NSDate? = nil, imageURL: NSURL? = nil, copyright: String? = nil) {
         self.title = title
         self.link = link
         self.description = description
 
-        self.articles = articles
+        self.internalArticles = articles
 
         self.language = language
         self.lastUpdated = lastUpdated
@@ -26,7 +28,7 @@ public struct Feed {
         self.imageURL = imageURL
     }
 
-    public mutating func addArticle(article : Article) {
-        self.articles.append(article)
+    @objc public func addArticle(article : Article) {
+        self.internalArticles.append(article)
     }
 }

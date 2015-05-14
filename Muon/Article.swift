@@ -1,16 +1,19 @@
-public struct Article {
-    public let title : String?
-    public let link : NSURL?
-    public let guid : String?
-    public let description : String?
-    public let published : NSDate?
-    public let updated : NSDate?
-    public let content : String?
+@objc public class Article {
+    @objc public let title : String?
+    @objc public let link : NSURL?
+    @objc public let guid : String?
+    @objc public let description : String?
+    @objc public let published : NSDate?
+    @objc public let updated : NSDate?
+    @objc public let content : String?
 
-    public private(set) var authors : [Author]
-    public private(set) var enclosures : [Enclosure]
+    private var internalAuthors : [Author]
+    @objc public var authors : [Author] { return internalAuthors }
 
-    public init(title: String? = nil, link: NSURL? = nil, description: String? = nil, content: String? = nil, guid: String? = nil,
+    private var internalEnclosures : [Enclosure]
+    @objc public var enclosures : [Enclosure] { return internalEnclosures }
+
+    @objc public init(title: String? = nil, link: NSURL? = nil, description: String? = nil, content: String? = nil, guid: String? = nil,
          published: NSDate? = nil, updated: NSDate? = nil, authors: [Author] = [], enclosures: [Enclosure] = []) {
         self.title = title
         self.link = link
@@ -20,15 +23,15 @@ public struct Article {
         self.updated = updated
         self.content = content
 
-        self.authors = authors
-        self.enclosures = enclosures
+        self.internalAuthors = authors
+        self.internalEnclosures = enclosures
     }
 
-    public mutating func addAuthor(author: Author) {
-        self.authors.append(author)
+    @objc public func addAuthor(author: Author) {
+        self.internalAuthors.append(author)
     }
 
-    public mutating func addEnclosure(enclosure: Enclosure) {
-        self.enclosures.append(enclosure)
+    @objc public func addEnclosure(enclosure: Enclosure) {
+        self.internalEnclosures.append(enclosure)
     }
 }

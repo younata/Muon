@@ -1,44 +1,44 @@
 import Foundation
 
-public class FeedParser: NSOperation, NSXMLParserDelegate {
-    public var completion : (Feed) -> Void = {_ in }
-    public var onFailure : (NSError) -> Void = {_ in }
+@objc public class FeedParser: NSOperation, NSXMLParserDelegate {
+    @objc public var completion : (Feed) -> Void = {_ in }
+    @objc public var onFailure : (NSError) -> Void = {_ in }
 
     private var content : NSData? = nil
     private var contentString : String? = nil
 
-    public func success(onSuccess: (Feed) -> Void) -> FeedParser {
+    @objc public func success(onSuccess: (Feed) -> Void) -> FeedParser {
         completion = onSuccess
         return self
     }
 
-    public func failure(failed: (NSError) -> Void) -> FeedParser {
+    @objc public func failure(failed: (NSError) -> Void) -> FeedParser {
         onFailure = failed
         return self
     }
 
-    public init(string: String) {
+    @objc public init(string: String) {
         contentString = string
         content = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         super.init()
     }
 
-    public override init() {
+    @objc public override init() {
         super.init()
     }
 
-    public func configureWithString(string: String) {
+    @objc public func configureWithString(string: String) {
         contentString = string
         content = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
     }
 
     // MARK - NSOperation
 
-    public override func main() {
+    @objc public override func main() {
         parse()
     }
 
-    public override func cancel() {
+    @objc public override func cancel() {
         stopParsing()
     }
 

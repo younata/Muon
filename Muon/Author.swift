@@ -1,9 +1,9 @@
-public struct Author {
-    public let name : String
-    public let email : NSURL?
-    public let uri : NSURL?
+@objc public class Author {
+    @objc public let name : String
+    @objc public let email : NSURL?
+    @objc public let uri : NSURL?
 
-    public init(name: String, email: NSURL? = nil, uri: NSURL? = nil) {
+    @objc public init(name: String, email: NSURL? = nil, uri: NSURL? = nil) {
         self.name = name
         self.email = email
         self.uri = uri
