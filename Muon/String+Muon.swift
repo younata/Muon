@@ -16,7 +16,7 @@ public extension String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
 
-        var dateFromFormat : (String) -> NSDate? = {formatString in
+        let dateFromFormat : (String) -> NSDate? = {formatString in
             dateFormatter.dateFormat = formatString
             return dateFormatter.dateFromString(str)
         }
@@ -50,7 +50,7 @@ public extension String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
 
-        var dateFromFormat : (String) -> NSDate? = {formatString in
+        let dateFromFormat : (String) -> NSDate? = {formatString in
             dateFormatter.dateFormat = formatString
             return dateFormatter.dateFromString(str)
         }

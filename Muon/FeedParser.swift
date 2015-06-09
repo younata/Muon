@@ -69,7 +69,7 @@ import Foundation
         if let feed = self.feed {
             self.completion(feed)
         } else {
-            self.onFailure(NSError())
+            self.onFailure(NSError(domain: "", code: 0, userInfo: [:]))
         }
     }
 
@@ -131,7 +131,7 @@ import Foundation
             if currentPath.count < path.count {
                 return false
             }
-            for (i,x) in enumerate(path) {
+            for (i,x) in path.enumerate() {
                 if currentPath[i] != x {
                     return false
                 }
@@ -141,7 +141,7 @@ import Foundation
         return false
     }
 
-    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String]) {
         let name = (qName?.rangeOfString("content") != nil ? "content" : elementName).lowercaseString
         currentPath.append(name)
 
@@ -171,7 +171,7 @@ import Foundation
             atomArticleContent = []
         } else if currentPath == ["rss", "channel", "item", "enclosure"] { // enclosure for RSS 2.0-compatible feeds
             parseRSSEnclosure(attributeDict)
-        } else if let imageURL = attributeDict["rdf:resource"] as? String where currentPath == ["rdf", "channel", "image"] { // RSS 1.0 image
+        } else if let imageURL = attributeDict["rdf:resource"] where currentPath == ["rdf", "channel", "image"] { // RSS 1.0 image
             parseChannel("image", str: imageURL)
         } else if let currentElement = currentPath.last where currentPath.first == "feed" && attributeDict.count != 0 { // Atom makes extensive use of attributes
             parseAtomItem(currentElement, attributeDict: attributeDict)
@@ -180,32 +180,32 @@ import Foundation
         }
     }
 
-    public func parser(parser: NSXMLParser, foundCharacters string: String?) {
-        if let str = string, currentItem = currentPath.last {
+    public func parser(parser: NSXMLParser, foundCharacters string: String) {
+        if let currentItem = currentPath.last {
             if let lastEntry = atomArticleContent.last where isAtomXHTML {
                 if lastEntry.hasPrefix(parseAtomContentBeginTag(currentItem, attributes: lastAttributes)) {
                     atomArticleContent[atomArticleContent.count - 1] = lastEntry + ">"
-                    atomArticleContent.append(str)
+                    atomArticleContent.append(string)
                 } else {
-                    atomArticleContent[atomArticleContent.count - 1] = lastEntry + str
+                    atomArticleContent[atomArticleContent.count - 1] = lastEntry + string
                 }
             } else if currentPath.first == "rss" || currentPath.first == "rdf" {
                 if currentPath.count == 3 && currentPath[1] == "channel" { // RSS 1.0 & RSS 2.0 feed
-                    parseChannel(currentItem, str: str)
+                    parseChannel(currentItem, str: string)
                 } else if currentPath.count == 4 && currentPath[1] == "channel" && currentPath[2] == "image" { // RSS 2.0 image
-                    if currentItem == "url" && !str.hasOnlyWhitespace() {
-                        parseChannel("image", str: str)
+                    if currentItem == "url" && !string.hasOnlyWhitespace() {
+                        parseChannel("image", str: string)
                     }
                 } else if currentPath.count == 4 && currentPath[2] == "item" { // RSS 2.0 item
-                    parseItem(currentItem, str: str)
+                    parseItem(currentItem, str: string)
                 } else if currentPath.count > 2 && currentPath.first == "rdf" && currentPath[1] == "item" { // RSS 1.0 item
-                    parseItem(currentItem, str: str)
+                    parseItem(currentItem, str: string)
                 }
             } else if currentPath.first == "feed" {
-                if contains(currentPath, "entry") {
-                    parseItem(currentItem, str: str)
+                if currentPath.contains("entry") {
+                    parseItem(currentItem, str: string)
                 } else {
-                    parseChannel(currentItem, str: str)
+                    parseChannel(currentItem, str: string)
                 }
             }
         }
@@ -220,7 +220,7 @@ import Foundation
 
     public func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         let name = (qName?.rangeOfString("content") != nil ? "content" : elementName).lowercaseString
-        for (idx, item) in enumerate(currentPath.reverse()) {
+        for (idx, item) in Array(currentPath.reverse()).enumerate() {
             if item == name.lowercaseString {
                 currentPath.removeAtIndex(currentPath.count - (idx + 1))
                 break
@@ -236,7 +236,7 @@ import Foundation
             }
             if atomXHTMLPath ?? [] == currentPath {
                 // flatten atomArticleContent
-                articleHelper.content = join("", atomArticleContent)
+                articleHelper.content = "".join(atomArticleContent)
                 atomXHTMLPath = nil
             }
         } else if name == "channel" || name == "feed" {
@@ -276,7 +276,7 @@ import Foundation
             let email = !authorHelper.email.hasOnlyWhitespace() ? NSURL(string: authorHelper.email) : nil
             let uri = !authorHelper.uri.hasOnlyWhitespace() ? NSURL(string: authorHelper.uri) : nil
             let author = Author(name: name, email: email, uri: uri)
-            if contains(currentPath, "entry") || contains(currentPath, "item") {
+            if currentPath.contains("entry") || currentPath.contains("item") {
                 authors.append(author)
             } else {
                 feedAuthors.append(author)
@@ -333,7 +333,7 @@ import Foundation
     }
 
     private func parseAuthor(currentElement: String, str: String) -> Bool {
-        if contains(currentPath, "author") || contains(currentPath, "contributor") {
+        if currentPath.contains("author") || currentPath.contains("contributor") {
             if currentPath.first == "feed" { // Atom
                 switch (currentElement) {
                 case "name":
@@ -356,21 +356,21 @@ import Foundation
     private func parseRSSEnclosure(attributeDict: [NSObject: AnyObject]) {
         if let url = NSURL(string: attributeDict["url"] as? String ?? ""),
             let type = attributeDict["type"] as? String,
-            let lenStr = attributeDict["length"] as? String, let length = lenStr.toInt() {
+            let lenStr = attributeDict["length"] as? String, let length = Int(lenStr) {
                 let enclosure = Enclosure(url: url, length: length, type: type)
                 enclosures.append(enclosure)
         }
     }
 
     private func parseAtomItem(currentElement: String, attributeDict: [NSObject: AnyObject]) {
-        if contains(currentPath, "entry") {
+        if currentPath.contains("entry") {
             switch (currentElement) {
             case "link":
                 if let rel = attributeDict["rel"] as? String {
                     if let href = attributeDict["href"] as? String where rel == "alternate" {
                         articleHelper.link = href
                     } else if let type = attributeDict["type"] as? String, let lengthString = attributeDict["length"] as? String,
-                        let length = lengthString.toInt(), let href = attributeDict["href"] as? String, let url = NSURL(string: href) where rel == "enclosure" {
+                        let length = Int(lengthString), let href = attributeDict["href"] as? String, let url = NSURL(string: href) where rel == "enclosure" {
                             let enclosure = Enclosure(url: url, length: length, type: type)
                             enclosures.append(enclosure)
                     }

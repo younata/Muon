@@ -3,7 +3,7 @@ import Muon
 
 func parserWithContentsOfFile(fileName: String) -> FeedParser {
     let location = NSBundle(forClass: AtomPerformanceTest.self).pathForResource(fileName, ofType: nil)!
-    let contents = String(contentsOfFile: location, encoding: NSUTF8StringEncoding, error: nil)!
+    let contents = try! String(contentsOfFile: location, encoding: NSUTF8StringEncoding)
     let parser = FeedParser(string: contents)
     return parser
 }
