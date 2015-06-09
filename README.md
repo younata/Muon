@@ -28,11 +28,11 @@ parser.main() // or add to an NSOperationQueue
 
 Swift 2.0:
 
-* add `github "younata/Muon" "swift_2"`
+* add `github "younata/Muon"`
 
 Swift 1.2:
 
-* add `github "younata/Muon"`
+* add `github "younata/Muon" "0.3.1"`
 
 ####Cocoapods
 
@@ -40,17 +40,21 @@ Make sure that `user_frameworks!` is defined in your Podfile
 
 Swift 2.0:
 
-* add `Pod "Muon" :git => "https://github.com/younata/Muon.git", :branch => "swift_2"`
+* add `Pod "Muon" :git => "https://github.com/younata/Muon.git"`
 
 Swift 1.2:
 
-* add `Pod "Muon" :git => "https://github.com/younata/Muon.git"`
+* add `Pod "Muon" :git => "https://github.com/younata/Muon.git", :tag => "v0.3.1"`
 
 ###ChangeLog
 
 #### 0.4.0
 
 - Swift 2.0 Compatibility
+
+#### 0.3.1
+
+- Last Swift 1.2 release
 
 #### 0.3.0
 
@@ -69,8 +73,6 @@ Swift 1.2:
 
 - Initial support for RSS 1.0, RSS 2.0, and Atom feeds
 
-=======
 ### License
 
 [MIT](LICENSE)
-
