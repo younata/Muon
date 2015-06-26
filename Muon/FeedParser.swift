@@ -303,7 +303,7 @@ import Foundation
             feedHelper.lastUpdated += str
         case "copyright", "rights":
             feedHelper.copyright += str
-        case "image":
+        case "image", "icon":
             feedHelper.imageURL += str.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         default: break
         }

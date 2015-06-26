@@ -4,22 +4,23 @@ import Muon
 
 class IntegrationSpec: QuickSpec {
     override func spec() {
-        var parser : FeedParser! = nil
+        var parser: FeedParser! = nil
 
-        var feed : Feed? = nil
-        var parseError : NSError? = nil
+        var feed: Feed? = nil
 
-        var parserWithContentsOfFile : String -> FeedParser = {fileName in
-            let expectation = self.expectationWithDescription("parsing")
+        let parserWithContentsOfFile : String -> FeedParser = {fileName in
             let location = NSBundle(forClass: self.classForCoder).pathForResource(fileName, ofType: nil)!
             let contents = try! String(contentsOfFile: location, encoding: NSUTF8StringEncoding)
             let parser = FeedParser(string: contents)
-            parser.success { feed = $0; expectation.fulfill() }
-            parser.failure { parseError = $0; expectation.fulfill() }
+            parser.success { feed = $0; }
 
             parser.main()
-            self.waitForExpectationsWithTimeout(10, handler: { _ in })
+
             return parser
+        }
+
+        afterEach {
+            parser = nil
         }
 
         describe("Apple") {
@@ -198,6 +199,7 @@ class IntegrationSpec: QuickSpec {
                     let date = "2005-07-31T12:29:29Z".RFC3339Date()
                     expect(feed.lastUpdated).to(equal(date))
                     expect(feed.copyright).to(equal("Copyright (c) 2003, Mark Pilgrim"))
+                    expect(feed.imageURL).to(equal(NSURL(string: "http://example.org/icon.gif")))
                 }
             }
 

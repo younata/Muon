@@ -30,15 +30,10 @@ class FeedParserSpec: QuickSpec {
             }
 
             it("should succeed when main is called") {
-                let expectation = self.expectationWithDescription("should pass")
-                subject.success {feed in
-                    expectation.fulfill()
-                }
-                subject.failure {_ in
-                    expect(true).to(beFalsy())
-                }
+                var feed: Feed? = nil
+                subject.success { feed = $0 }
                 subject.main()
-                self.waitForExpectationsWithTimeout(1, handler: { _ in })
+                expect(feed).toEventuallyNot(beNil())
             }
         }
 
@@ -48,13 +43,11 @@ class FeedParserSpec: QuickSpec {
             }
 
             it("immediately call onFailure if main is called") {
-                let expectation = self.expectationWithDescription("errorShouldBeCalled")
-                subject.failure {error in
-                    expect(error.localizedDescription).to(equal("Must be configured with data"))
-                    expectation.fulfill()
-                }
+                var error: NSError? = nil
+                subject.failure { error = $0 }
                 subject.main()
-                self.waitForExpectationsWithTimeout(1, handler: { _ in })
+                expect(error).toNot(beNil())
+                expect(error?.localizedDescription).to(equal("Must be configured with data"))
             }
 
             describe("after configuring") {
@@ -63,15 +56,10 @@ class FeedParserSpec: QuickSpec {
                 }
 
                 it("should succeed when main is called") {
-                    let expectation = self.expectationWithDescription("should pass")
-                    subject.success {feed in
-                        expectation.fulfill()
-                    }
-                    subject.failure {_ in
-                        expect(true).to(beFalsy())
-                    }
+                    var feed: Feed? = nil
+                    subject.success { feed = $0 }
                     subject.main()
-                    self.waitForExpectationsWithTimeout(1, handler: { _ in })
+                    expect(feed).toEventuallyNot(beNil())
                 }
             }
         }
