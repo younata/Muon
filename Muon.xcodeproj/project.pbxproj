@@ -14,6 +14,31 @@
 		898131721AFC75430090FA7F /* rss1_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131711AFC75430090FA7F /* rss1_large.rss */; };
 		898131741AFC75530090FA7F /* rss2_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131731AFC75530090FA7F /* rss2_large.rss */; };
 		8981317A1AFE64B00090FA7F /* FeedParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898131791AFE64B00090FA7F /* FeedParserSpec.swift */; };
+		898979761B7084EF00218498 /* Muon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8989796C1B7084EF00218498 /* Muon.framework */; };
+		898979851B7085AE00218498 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898979831B7085AE00218498 /* Nimble.framework */; };
+		898979861B7085AE00218498 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898979841B7085AE00218498 /* Quick.framework */; };
+		898979881B7085C200218498 /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 898979831B7085AE00218498 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		898979891B7085C200218498 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 898979841B7085AE00218498 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8989798A1B7085FE00218498 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EFC1B1AE223EF00DD1F09 /* FeedParser.swift */; };
+		8989798B1B7085FE00218498 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EFC151AE2233000DD1F09 /* Feed.swift */; };
+		8989798C1B7085FE00218498 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EFC171AE2234400DD1F09 /* Article.swift */; };
+		8989798D1B7085FE00218498 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BBC1161AF2BCA0006025AA /* Author.swift */; };
+		8989798E1B7085FE00218498 /* Enclosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898EFC191AE2234C00DD1F09 /* Enclosure.swift */; };
+		8989798F1B7085FE00218498 /* String+Muon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C20E1AF495A400620A55 /* String+Muon.swift */; };
+		898979901B70860200218498 /* Muon.h in Headers */ = {isa = PBXBuildFile; fileRef = 898EFBF71AE21B5100DD1F09 /* Muon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		898979911B70861B00218498 /* FeedParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898131791AFE64B00090FA7F /* FeedParserSpec.swift */; };
+		898979921B70861B00218498 /* IntegrationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8967016B1AF1747C00BCD0DD /* IntegrationSpec.swift */; };
+		898979931B70861B00218498 /* PerformanceSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8981316D1AFC745F0090FA7F /* PerformanceSpecs.swift */; };
+		898979941B70861B00218498 /* StringExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C2101AF4987D00620A55 /* StringExtensionSpec.swift */; };
+		898979951B70861B00218498 /* researchkit.rss in Resources */ = {isa = PBXBuildFile; fileRef = 8967016D1AF1749300BCD0DD /* researchkit.rss */; };
+		898979961B70861B00218498 /* rss091.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC10C1AF1EB2D006025AA /* rss091.rss */; };
+		898979971B70861B00218498 /* rss092.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC10E1AF1EB4E006025AA /* rss092.rss */; };
+		898979981B70861B00218498 /* rss100.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1121AF1EC06006025AA /* rss100.rss */; };
+		898979991B70861B00218498 /* rss200.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1101AF1EB70006025AA /* rss200.rss */; };
+		8989799A1B70861B00218498 /* atom100.xml in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1141AF1EC36006025AA /* atom100.xml */; };
+		8989799B1B70861B00218498 /* rss1_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131711AFC75430090FA7F /* rss1_large.rss */; };
+		8989799C1B70861B00218498 /* rss2_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131731AFC75530090FA7F /* rss2_large.rss */; };
+		8989799D1B70861B00218498 /* atom_large.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8981316F1AFC75270090FA7F /* atom_large.xml */; };
 		898EFBF81AE21B5100DD1F09 /* Muon.h in Headers */ = {isa = PBXBuildFile; fileRef = 898EFBF71AE21B5100DD1F09 /* Muon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		898EFBFE1AE21B5100DD1F09 /* Muon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898EFBF21AE21B5100DD1F09 /* Muon.framework */; };
 		898EFC101AE21C8D00DD1F09 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898EFC0E1AE21C8D00DD1F09 /* Nimble.framework */; };
@@ -35,6 +60,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		898979771B7084EF00218498 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 898EFBE91AE21B5100DD1F09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8989796B1B7084EF00218498;
+			remoteInfo = "Muon-OSX";
+		};
 		898EFBFF1AE21B5100DD1F09 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 898EFBE91AE21B5100DD1F09 /* Project object */;
@@ -45,6 +77,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		898979871B7085B400218498 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				898979881B7085C200218498 /* Nimble.framework in Embed Frameworks */,
+				898979891B7085C200218498 /* Quick.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		898EFC121AE21C9A00DD1F09 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,6 +111,12 @@
 		898131711AFC75430090FA7F /* rss1_large.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rss1_large.rss; sourceTree = "<group>"; };
 		898131731AFC75530090FA7F /* rss2_large.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rss2_large.rss; sourceTree = "<group>"; };
 		898131791AFE64B00090FA7F /* FeedParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedParserSpec.swift; sourceTree = "<group>"; };
+		8989796C1B7084EF00218498 /* Muon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Muon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		898979701B7084EF00218498 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		898979751B7084EF00218498 /* Muon-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Muon-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8989797C1B7084EF00218498 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		898979831B7085AE00218498 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
+		898979841B7085AE00218498 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		898EFBF21AE21B5100DD1F09 /* Muon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Muon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		898EFBF61AE21B5100DD1F09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		898EFBF71AE21B5100DD1F09 /* Muon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Muon.h; sourceTree = "<group>"; };
@@ -89,6 +139,23 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		898979681B7084EF00218498 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		898979721B7084EF00218498 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				898979851B7085AE00218498 /* Nimble.framework in Frameworks */,
+				898979861B7085AE00218498 /* Quick.framework in Frameworks */,
+				898979761B7084EF00218498 /* Muon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		898EFBEE1AE21B5100DD1F09 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -109,11 +176,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8989796D1B7084EF00218498 /* Muon-OSX */ = {
+			isa = PBXGroup;
+			children = (
+				898979701B7084EF00218498 /* Info.plist */,
+			);
+			path = "Muon-OSX";
+			sourceTree = "<group>";
+		};
+		898979791B7084EF00218498 /* Muon-OSXTests */ = {
+			isa = PBXGroup;
+			children = (
+				8989797C1B7084EF00218498 /* Info.plist */,
+				898979831B7085AE00218498 /* Nimble.framework */,
+				898979841B7085AE00218498 /* Quick.framework */,
+			);
+			path = "Muon-OSXTests";
+			sourceTree = "<group>";
+		};
 		898EFBE81AE21B5000DD1F09 = {
 			isa = PBXGroup;
 			children = (
 				898EFBF41AE21B5100DD1F09 /* Muon */,
 				898EFC011AE21B5100DD1F09 /* MuonTests */,
+				8989796D1B7084EF00218498 /* Muon-OSX */,
+				898979791B7084EF00218498 /* Muon-OSXTests */,
 				898EFBF31AE21B5100DD1F09 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -123,6 +210,8 @@
 			children = (
 				898EFBF21AE21B5100DD1F09 /* Muon.framework */,
 				898EFBFD1AE21B5100DD1F09 /* MuonTests.xctest */,
+				8989796C1B7084EF00218498 /* Muon.framework */,
+				898979751B7084EF00218498 /* Muon-OSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,6 +273,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		898979691B7084EF00218498 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				898979901B70860200218498 /* Muon.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		898EFBEF1AE21B5100DD1F09 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -195,6 +292,43 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		8989796B1B7084EF00218498 /* Muon-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 898979811B7084EF00218498 /* Build configuration list for PBXNativeTarget "Muon-OSX" */;
+			buildPhases = (
+				898979671B7084EF00218498 /* Sources */,
+				898979681B7084EF00218498 /* Frameworks */,
+				898979691B7084EF00218498 /* Headers */,
+				8989796A1B7084EF00218498 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Muon-OSX";
+			productName = "Muon-OSX";
+			productReference = 8989796C1B7084EF00218498 /* Muon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		898979741B7084EF00218498 /* Muon-OSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 898979821B7084EF00218498 /* Build configuration list for PBXNativeTarget "Muon-OSXTests" */;
+			buildPhases = (
+				898979711B7084EF00218498 /* Sources */,
+				898979721B7084EF00218498 /* Frameworks */,
+				898979731B7084EF00218498 /* Resources */,
+				898979871B7085B400218498 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				898979781B7084EF00218498 /* PBXTargetDependency */,
+			);
+			name = "Muon-OSXTests";
+			productName = "Muon-OSXTests";
+			productReference = 898979751B7084EF00218498 /* Muon-OSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		898EFBF11AE21B5100DD1F09 /* Muon */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 898EFC081AE21B5300DD1F09 /* Build configuration list for PBXNativeTarget "Muon" */;
@@ -242,6 +376,12 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Rachel Brindle";
 				TargetAttributes = {
+					8989796B1B7084EF00218498 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					898979741B7084EF00218498 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 					898EFBF11AE21B5100DD1F09 = {
 						CreatedOnToolsVersion = 6.3;
 					};
@@ -264,11 +404,36 @@
 			targets = (
 				898EFBF11AE21B5100DD1F09 /* Muon */,
 				898EFBFC1AE21B5100DD1F09 /* MuonTests */,
+				8989796B1B7084EF00218498 /* Muon-OSX */,
+				898979741B7084EF00218498 /* Muon-OSXTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8989796A1B7084EF00218498 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		898979731B7084EF00218498 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8989799C1B70861B00218498 /* rss2_large.rss in Resources */,
+				8989799A1B70861B00218498 /* atom100.xml in Resources */,
+				898979991B70861B00218498 /* rss200.rss in Resources */,
+				898979961B70861B00218498 /* rss091.rss in Resources */,
+				8989799D1B70861B00218498 /* atom_large.xml in Resources */,
+				898979981B70861B00218498 /* rss100.rss in Resources */,
+				898979971B70861B00218498 /* rss092.rss in Resources */,
+				898979951B70861B00218498 /* researchkit.rss in Resources */,
+				8989799B1B70861B00218498 /* rss1_large.rss in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		898EFBF01AE21B5100DD1F09 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,6 +460,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		898979671B7084EF00218498 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8989798E1B7085FE00218498 /* Enclosure.swift in Sources */,
+				8989798A1B7085FE00218498 /* FeedParser.swift in Sources */,
+				8989798B1B7085FE00218498 /* Feed.swift in Sources */,
+				8989798D1B7085FE00218498 /* Author.swift in Sources */,
+				8989798C1B7085FE00218498 /* Article.swift in Sources */,
+				8989798F1B7085FE00218498 /* String+Muon.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		898979711B7084EF00218498 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				898979911B70861B00218498 /* FeedParserSpec.swift in Sources */,
+				898979931B70861B00218498 /* PerformanceSpecs.swift in Sources */,
+				898979921B70861B00218498 /* IntegrationSpec.swift in Sources */,
+				898979941B70861B00218498 /* StringExtensionSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		898EFBED1AE21B5100DD1F09 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,6 +511,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		898979781B7084EF00218498 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8989796B1B7084EF00218498 /* Muon-OSX */;
+			targetProxy = 898979771B7084EF00218498 /* PBXContainerItemProxy */;
+		};
 		898EFC001AE21B5100DD1F09 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 898EFBF11AE21B5100DD1F09 /* Muon */;
@@ -330,6 +524,84 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		8989797D1B7084EF00218498 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Muon-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rachelbrindle.Muon-OSX";
+				PRODUCT_NAME = Muon;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8989797E1B7084EF00218498 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Muon-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rachelbrindle.Muon-OSX";
+				PRODUCT_NAME = Muon;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8989797F1B7084EF00218498 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = "Muon-OSXTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rachelbrindle.Muon-OSXTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		898979801B7084EF00218498 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = "Muon-OSXTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rachelbrindle.Muon-OSXTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		898EFC061AE21B5300DD1F09 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -502,6 +774,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		898979811B7084EF00218498 /* Build configuration list for PBXNativeTarget "Muon-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8989797D1B7084EF00218498 /* Debug */,
+				8989797E1B7084EF00218498 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		898979821B7084EF00218498 /* Build configuration list for PBXNativeTarget "Muon-OSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8989797F1B7084EF00218498 /* Debug */,
+				898979801B7084EF00218498 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		898EFBEC1AE21B5100DD1F09 /* Build configuration list for PBXProject "Muon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
