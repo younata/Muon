@@ -781,6 +781,7 @@
 				8989797E1B7084EF00218498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		898979821B7084EF00218498 /* Build configuration list for PBXNativeTarget "Muon-OSXTests" */ = {
 			isa = XCConfigurationList;
@@ -789,6 +790,7 @@
 				898979801B7084EF00218498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		898EFBEC1AE21B5100DD1F09 /* Build configuration list for PBXProject "Muon" */ = {
 			isa = XCConfigurationList;

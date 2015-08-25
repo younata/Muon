@@ -236,7 +236,7 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
             }
             if atomXHTMLPath ?? [] == currentPath {
                 // flatten atomArticleContent
-                articleHelper.content = "".join(atomArticleContent)
+                articleHelper.content = atomArticleContent.joinWithSeparator("")
                 atomXHTMLPath = nil
             }
         } else if name == "channel" || name == "feed" {

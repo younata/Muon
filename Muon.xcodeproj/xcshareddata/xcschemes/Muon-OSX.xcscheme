@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8989796B1B7084EF00218498"
-               BuildableName = "Muon-OSX.framework"
+               BuildableName = "Muon.framework"
                BlueprintName = "Muon-OSX"
                ReferencedContainer = "container:Muon.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8989796B1B7084EF00218498"
-            BuildableName = "Muon-OSX.framework"
+            BuildableName = "Muon.framework"
             BlueprintName = "Muon-OSX"
             ReferencedContainer = "container:Muon.xcodeproj">
          </BuildableReference>
@@ -55,7 +55,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8989796B1B7084EF00218498"
-            BuildableName = "Muon-OSX.framework"
+            BuildableName = "Muon.framework"
             BlueprintName = "Muon-OSX"
             ReferencedContainer = "container:Muon.xcodeproj">
          </BuildableReference>
@@ -73,7 +73,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8989796B1B7084EF00218498"
-            BuildableName = "Muon-OSX.framework"
+            BuildableName = "Muon.framework"
             BlueprintName = "Muon-OSX"
             ReferencedContainer = "container:Muon.xcodeproj">
          </BuildableReference>
