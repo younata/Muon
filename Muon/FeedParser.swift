@@ -50,7 +50,11 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
     }
 
     private func parse() {
-        if let content = content {
+        if let content = self.content {
+            if content.length == 0 {
+                self.onFailure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No Feed Found"]))
+                return
+            }
             let parser = NSXMLParser(data: content)
             self.parser = parser
             parser.delegate = self
@@ -166,7 +170,7 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
         } else if name == "item" || name == "entry" {
             articleHelper = ArticleHelper()
             authors = []
-        } else if name == "content" && currentPath.first == "feed" && !isAtomXHTML {
+        } else if name == "content" && currentPath.first == "feed" && attributeDict["type"] == "xhtml" && !isAtomXHTML {
             atomXHTMLPath = currentPath
             atomArticleContent = []
         } else if currentPath == ["rss", "channel", "item", "enclosure"] { // enclosure for RSS 2.0-compatible feeds
@@ -180,7 +184,7 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
         }
     }
 
-    public func parser(parser: NSXMLParser, foundCharacters string: String) {
+    private func parseCharacters(string: String) {
         if let currentItem = currentPath.last {
             if let lastEntry = atomArticleContent.last where isAtomXHTML {
                 if lastEntry.hasPrefix(parseAtomContentBeginTag(currentItem, attributes: lastAttributes)) {
@@ -209,6 +213,14 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
                 }
             }
         }
+    }
+
+    public func parser(parser: NSXMLParser, foundCharacters string: String) {
+        self.parseCharacters(string)
+    }
+
+    public func parser(parser: NSXMLParser, foundIgnorableWhitespace whitespaceString: String) {
+        self.parseCharacters(whitespaceString)
     }
 
     private func stringOrNil(string: String) -> String? {
@@ -366,21 +378,25 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
         if currentPath.contains("entry") {
             switch (currentElement) {
             case "link":
-                if let rel = attributeDict["rel"] as? String {
-                    if let href = attributeDict["href"] as? String where rel == "alternate" {
+                if let href = attributeDict["href"] as? String {
+                    if attributeDict["rel"] as? String == "enclosure" {
+                        if let type = attributeDict["type"] as? String, let lengthString = attributeDict["length"] as? String,
+                            let length = Int(lengthString), let href = attributeDict["href"] as? String, let url = NSURL(string: href) {
+                                let enclosure = Enclosure(url: url, length: length, type: type)
+                                enclosures.append(enclosure)
+                        }
+                    } else {
                         articleHelper.link = href
-                    } else if let type = attributeDict["type"] as? String, let lengthString = attributeDict["length"] as? String,
-                        let length = Int(lengthString), let href = attributeDict["href"] as? String, let url = NSURL(string: href) where rel == "enclosure" {
-                            let enclosure = Enclosure(url: url, length: length, type: type)
-                            enclosures.append(enclosure)
                     }
                 }
             default:
                 break;
             }
         } else {
-            if let rel = attributeDict["rel"] as? String, let href = attributeDict["href"] as? String where currentElement == "link" && rel == "self" {
-                feedHelper.link = href
+            if let href = attributeDict["href"] as? String where currentElement == "link" {
+                if attributeDict["rel"] == nil || attributeDict["rel"] as? String == "self" {
+                    feedHelper.link = href
+                }
             }
         }
     }

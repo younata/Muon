@@ -55,6 +55,8 @@
 		89BBC1131AF1EC06006025AA /* rss100.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1121AF1EC06006025AA /* rss100.rss */; };
 		89BBC1151AF1EC36006025AA /* atom100.xml in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1141AF1EC36006025AA /* atom100.xml */; };
 		89BBC1171AF2BCA0006025AA /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BBC1161AF2BCA0006025AA /* Author.swift */; };
+		89D427FD1B8CFB44006CD81C /* sparkfun.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89D427FC1B8CFB44006CD81C /* sparkfun.rss */; settings = {ASSET_TAGS = (); }; };
+		89D428011B8D0143006CD81C /* sparkfun1.html in Resources */ = {isa = PBXBuildFile; fileRef = 89D428001B8D0143006CD81C /* sparkfun1.html */; settings = {ASSET_TAGS = (); }; };
 		89E9C20F1AF495A400620A55 /* String+Muon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C20E1AF495A400620A55 /* String+Muon.swift */; };
 		89E9C2111AF4987D00620A55 /* StringExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C2101AF4987D00620A55 /* StringExtensionSpec.swift */; };
 /* End PBXBuildFile section */
@@ -134,6 +136,8 @@
 		89BBC1121AF1EC06006025AA /* rss100.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rss100.rss; sourceTree = "<group>"; };
 		89BBC1141AF1EC36006025AA /* atom100.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = atom100.xml; sourceTree = "<group>"; };
 		89BBC1161AF2BCA0006025AA /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		89D427FC1B8CFB44006CD81C /* sparkfun.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sparkfun.rss; sourceTree = "<group>"; };
+		89D428001B8D0143006CD81C /* sparkfun1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sparkfun1.html; sourceTree = "<group>"; };
 		89E9C20E1AF495A400620A55 /* String+Muon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Muon.swift"; sourceTree = "<group>"; };
 		89E9C2101AF4987D00620A55 /* StringExtensionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +251,8 @@
 				8981316D1AFC745F0090FA7F /* PerformanceSpecs.swift */,
 				89E9C2101AF4987D00620A55 /* StringExtensionSpec.swift */,
 				8967016D1AF1749300BCD0DD /* researchkit.rss */,
+				89D427FC1B8CFB44006CD81C /* sparkfun.rss */,
+				89D428001B8D0143006CD81C /* sparkfun1.html */,
 				89BBC10C1AF1EB2D006025AA /* rss091.rss */,
 				89BBC10E1AF1EB4E006025AA /* rss092.rss */,
 				89BBC1121AF1EC06006025AA /* rss100.rss */,
@@ -449,10 +455,12 @@
 				89BBC10D1AF1EB2D006025AA /* rss091.rss in Resources */,
 				89BBC10F1AF1EB4E006025AA /* rss092.rss in Resources */,
 				89BBC1111AF1EB70006025AA /* rss200.rss in Resources */,
+				89D427FD1B8CFB44006CD81C /* sparkfun.rss in Resources */,
 				898131741AFC75530090FA7F /* rss2_large.rss in Resources */,
 				898131701AFC75270090FA7F /* atom_large.xml in Resources */,
 				8967016E1AF1749300BCD0DD /* researchkit.rss in Resources */,
 				89BBC1151AF1EC36006025AA /* atom100.xml in Resources */,
+				89D428011B8D0143006CD81C /* sparkfun1.html in Resources */,
 				898131721AFC75430090FA7F /* rss1_large.rss in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -57,6 +57,36 @@ class IntegrationSpec: QuickSpec {
             }
         }
 
+        describe("Sparkfun") {
+            beforeEach {
+                parser = parserWithContentsOfFile("sparkfun.rss")
+            }
+
+            it("should parse the feed") {
+                expect(feed).toNot(beNil())
+                if let feed = feed {
+                    expect(feed.title).to(equal("SparkFun Electronics Blog Posts"))
+                    expect(feed.link).to(equal(NSURL(string: "https://www.sparkfun.com/news")!))
+                }
+            }
+
+            it("should parse the feed's items") {
+                expect(feed?.articles.count).to(equal(20))
+                if let article = feed?.articles.first {
+                    expect(article.title).to(equal("Photon Kit contest winners"))
+                    expect(article.link).to(equal(NSURL(string: "https://www.sparkfun.com/news/1910")))
+                    expect(article.guid).to(equal("urn:uuid:b591fe6f-ed76-e46a-ffc0-66cac3fac399"))
+                    expect(article.description).to(beNil())
+                    let loadedString = try? String(contentsOfFile: NSBundle(forClass: self.classForCoder).pathForResource("sparkfun1", ofType: "html")!, encoding: NSUTF8StringEncoding).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                    expect(article.content).to(match(loadedString))
+                    let updated = "2015-08-25T08:43:06-06:00".RFC3339Date()
+                    expect(article.published).to(beNil())
+                    expect(article.updated).to(equal(updated))
+                    expect(article.enclosures.count).to(equal(0))
+                }
+            }
+        }
+
         describe("RSS 0.91") {
             beforeEach {
                 parser = parserWithContentsOfFile("rss091.rss")
