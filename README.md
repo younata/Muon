@@ -51,6 +51,10 @@ Swift 1.2:
 #### 0.4.0
 
 - Swift 2.0 Compatibility
+- Enabled for use in extensions
+- Not obj-c compatible anymore (sorry)
+- Less strict on parsing feeds
+- Enabled bitcode
 
 #### 0.3.1
 
