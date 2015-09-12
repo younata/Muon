@@ -30,15 +30,6 @@
 		898979921B70861B00218498 /* IntegrationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8967016B1AF1747C00BCD0DD /* IntegrationSpec.swift */; };
 		898979931B70861B00218498 /* PerformanceSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8981316D1AFC745F0090FA7F /* PerformanceSpecs.swift */; };
 		898979941B70861B00218498 /* StringExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C2101AF4987D00620A55 /* StringExtensionSpec.swift */; };
-		898979951B70861B00218498 /* researchkit.rss in Resources */ = {isa = PBXBuildFile; fileRef = 8967016D1AF1749300BCD0DD /* researchkit.rss */; };
-		898979961B70861B00218498 /* rss091.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC10C1AF1EB2D006025AA /* rss091.rss */; };
-		898979971B70861B00218498 /* rss092.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC10E1AF1EB4E006025AA /* rss092.rss */; };
-		898979981B70861B00218498 /* rss100.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1121AF1EC06006025AA /* rss100.rss */; };
-		898979991B70861B00218498 /* rss200.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1101AF1EB70006025AA /* rss200.rss */; };
-		8989799A1B70861B00218498 /* atom100.xml in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1141AF1EC36006025AA /* atom100.xml */; };
-		8989799B1B70861B00218498 /* rss1_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131711AFC75430090FA7F /* rss1_large.rss */; };
-		8989799C1B70861B00218498 /* rss2_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131731AFC75530090FA7F /* rss2_large.rss */; };
-		8989799D1B70861B00218498 /* atom_large.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8981316F1AFC75270090FA7F /* atom_large.xml */; };
 		898EFBF81AE21B5100DD1F09 /* Muon.h in Headers */ = {isa = PBXBuildFile; fileRef = 898EFBF71AE21B5100DD1F09 /* Muon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		898EFBFE1AE21B5100DD1F09 /* Muon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898EFBF21AE21B5100DD1F09 /* Muon.framework */; };
 		898EFC101AE21C8D00DD1F09 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 898EFC0E1AE21C8D00DD1F09 /* Nimble.framework */; };
@@ -55,6 +46,17 @@
 		89BBC1131AF1EC06006025AA /* rss100.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1121AF1EC06006025AA /* rss100.rss */; };
 		89BBC1151AF1EC36006025AA /* atom100.xml in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1141AF1EC36006025AA /* atom100.xml */; };
 		89BBC1171AF2BCA0006025AA /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BBC1161AF2BCA0006025AA /* Author.swift */; };
+		89CAD4D61BA4A203006D79FC /* researchkit.rss in Resources */ = {isa = PBXBuildFile; fileRef = 8967016D1AF1749300BCD0DD /* researchkit.rss */; settings = {ASSET_TAGS = (); }; };
+		89CAD4D71BA4A203006D79FC /* sparkfun.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89D427FC1B8CFB44006CD81C /* sparkfun.rss */; settings = {ASSET_TAGS = (); }; };
+		89CAD4D81BA4A203006D79FC /* sparkfun1.html in Resources */ = {isa = PBXBuildFile; fileRef = 89D428001B8D0143006CD81C /* sparkfun1.html */; settings = {ASSET_TAGS = (); }; };
+		89CAD4D91BA4A203006D79FC /* rss091.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC10C1AF1EB2D006025AA /* rss091.rss */; settings = {ASSET_TAGS = (); }; };
+		89CAD4DA1BA4A203006D79FC /* rss092.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC10E1AF1EB4E006025AA /* rss092.rss */; settings = {ASSET_TAGS = (); }; };
+		89CAD4DB1BA4A203006D79FC /* rss100.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1121AF1EC06006025AA /* rss100.rss */; settings = {ASSET_TAGS = (); }; };
+		89CAD4DC1BA4A203006D79FC /* rss200.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1101AF1EB70006025AA /* rss200.rss */; settings = {ASSET_TAGS = (); }; };
+		89CAD4DD1BA4A203006D79FC /* atom100.xml in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1141AF1EC36006025AA /* atom100.xml */; settings = {ASSET_TAGS = (); }; };
+		89CAD4DE1BA4A203006D79FC /* rss1_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131711AFC75430090FA7F /* rss1_large.rss */; settings = {ASSET_TAGS = (); }; };
+		89CAD4DF1BA4A203006D79FC /* rss2_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131731AFC75530090FA7F /* rss2_large.rss */; settings = {ASSET_TAGS = (); }; };
+		89CAD4E01BA4A203006D79FC /* atom_large.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8981316F1AFC75270090FA7F /* atom_large.xml */; settings = {ASSET_TAGS = (); }; };
 		89D427FD1B8CFB44006CD81C /* sparkfun.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89D427FC1B8CFB44006CD81C /* sparkfun.rss */; settings = {ASSET_TAGS = (); }; };
 		89D428011B8D0143006CD81C /* sparkfun1.html in Resources */ = {isa = PBXBuildFile; fileRef = 89D428001B8D0143006CD81C /* sparkfun1.html */; settings = {ASSET_TAGS = (); }; };
 		89E9C20F1AF495A400620A55 /* String+Muon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C20E1AF495A400620A55 /* String+Muon.swift */; };
@@ -428,15 +430,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8989799C1B70861B00218498 /* rss2_large.rss in Resources */,
-				8989799A1B70861B00218498 /* atom100.xml in Resources */,
-				898979991B70861B00218498 /* rss200.rss in Resources */,
-				898979961B70861B00218498 /* rss091.rss in Resources */,
-				8989799D1B70861B00218498 /* atom_large.xml in Resources */,
-				898979981B70861B00218498 /* rss100.rss in Resources */,
-				898979971B70861B00218498 /* rss092.rss in Resources */,
-				898979951B70861B00218498 /* researchkit.rss in Resources */,
-				8989799B1B70861B00218498 /* rss1_large.rss in Resources */,
+				89CAD4E01BA4A203006D79FC /* atom_large.xml in Resources */,
+				89CAD4DA1BA4A203006D79FC /* rss092.rss in Resources */,
+				89CAD4D71BA4A203006D79FC /* sparkfun.rss in Resources */,
+				89CAD4DF1BA4A203006D79FC /* rss2_large.rss in Resources */,
+				89CAD4DC1BA4A203006D79FC /* rss200.rss in Resources */,
+				89CAD4D81BA4A203006D79FC /* sparkfun1.html in Resources */,
+				89CAD4DD1BA4A203006D79FC /* atom100.xml in Resources */,
+				89CAD4DB1BA4A203006D79FC /* rss100.rss in Resources */,
+				89CAD4DE1BA4A203006D79FC /* rss1_large.rss in Resources */,
+				89CAD4D91BA4A203006D79FC /* rss091.rss in Resources */,
+				89CAD4D61BA4A203006D79FC /* researchkit.rss in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
