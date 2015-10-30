@@ -46,19 +46,19 @@
 		89BBC1131AF1EC06006025AA /* rss100.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1121AF1EC06006025AA /* rss100.rss */; };
 		89BBC1151AF1EC36006025AA /* atom100.xml in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1141AF1EC36006025AA /* atom100.xml */; };
 		89BBC1171AF2BCA0006025AA /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BBC1161AF2BCA0006025AA /* Author.swift */; };
-		89CAD4D61BA4A203006D79FC /* researchkit.rss in Resources */ = {isa = PBXBuildFile; fileRef = 8967016D1AF1749300BCD0DD /* researchkit.rss */; settings = {ASSET_TAGS = (); }; };
-		89CAD4D71BA4A203006D79FC /* sparkfun.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89D427FC1B8CFB44006CD81C /* sparkfun.rss */; settings = {ASSET_TAGS = (); }; };
-		89CAD4D81BA4A203006D79FC /* sparkfun1.html in Resources */ = {isa = PBXBuildFile; fileRef = 89D428001B8D0143006CD81C /* sparkfun1.html */; settings = {ASSET_TAGS = (); }; };
-		89CAD4D91BA4A203006D79FC /* rss091.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC10C1AF1EB2D006025AA /* rss091.rss */; settings = {ASSET_TAGS = (); }; };
-		89CAD4DA1BA4A203006D79FC /* rss092.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC10E1AF1EB4E006025AA /* rss092.rss */; settings = {ASSET_TAGS = (); }; };
-		89CAD4DB1BA4A203006D79FC /* rss100.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1121AF1EC06006025AA /* rss100.rss */; settings = {ASSET_TAGS = (); }; };
-		89CAD4DC1BA4A203006D79FC /* rss200.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1101AF1EB70006025AA /* rss200.rss */; settings = {ASSET_TAGS = (); }; };
-		89CAD4DD1BA4A203006D79FC /* atom100.xml in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1141AF1EC36006025AA /* atom100.xml */; settings = {ASSET_TAGS = (); }; };
-		89CAD4DE1BA4A203006D79FC /* rss1_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131711AFC75430090FA7F /* rss1_large.rss */; settings = {ASSET_TAGS = (); }; };
-		89CAD4DF1BA4A203006D79FC /* rss2_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131731AFC75530090FA7F /* rss2_large.rss */; settings = {ASSET_TAGS = (); }; };
-		89CAD4E01BA4A203006D79FC /* atom_large.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8981316F1AFC75270090FA7F /* atom_large.xml */; settings = {ASSET_TAGS = (); }; };
-		89D427FD1B8CFB44006CD81C /* sparkfun.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89D427FC1B8CFB44006CD81C /* sparkfun.rss */; settings = {ASSET_TAGS = (); }; };
-		89D428011B8D0143006CD81C /* sparkfun1.html in Resources */ = {isa = PBXBuildFile; fileRef = 89D428001B8D0143006CD81C /* sparkfun1.html */; settings = {ASSET_TAGS = (); }; };
+		89CAD4D61BA4A203006D79FC /* researchkit.rss in Resources */ = {isa = PBXBuildFile; fileRef = 8967016D1AF1749300BCD0DD /* researchkit.rss */; };
+		89CAD4D71BA4A203006D79FC /* sparkfun.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89D427FC1B8CFB44006CD81C /* sparkfun.rss */; };
+		89CAD4D81BA4A203006D79FC /* sparkfun1.html in Resources */ = {isa = PBXBuildFile; fileRef = 89D428001B8D0143006CD81C /* sparkfun1.html */; };
+		89CAD4D91BA4A203006D79FC /* rss091.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC10C1AF1EB2D006025AA /* rss091.rss */; };
+		89CAD4DA1BA4A203006D79FC /* rss092.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC10E1AF1EB4E006025AA /* rss092.rss */; };
+		89CAD4DB1BA4A203006D79FC /* rss100.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1121AF1EC06006025AA /* rss100.rss */; };
+		89CAD4DC1BA4A203006D79FC /* rss200.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1101AF1EB70006025AA /* rss200.rss */; };
+		89CAD4DD1BA4A203006D79FC /* atom100.xml in Resources */ = {isa = PBXBuildFile; fileRef = 89BBC1141AF1EC36006025AA /* atom100.xml */; };
+		89CAD4DE1BA4A203006D79FC /* rss1_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131711AFC75430090FA7F /* rss1_large.rss */; };
+		89CAD4DF1BA4A203006D79FC /* rss2_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 898131731AFC75530090FA7F /* rss2_large.rss */; };
+		89CAD4E01BA4A203006D79FC /* atom_large.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8981316F1AFC75270090FA7F /* atom_large.xml */; };
+		89D427FD1B8CFB44006CD81C /* sparkfun.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89D427FC1B8CFB44006CD81C /* sparkfun.rss */; };
+		89D428011B8D0143006CD81C /* sparkfun1.html in Resources */ = {isa = PBXBuildFile; fileRef = 89D428001B8D0143006CD81C /* sparkfun1.html */; };
 		89E9C20F1AF495A400620A55 /* String+Muon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C20E1AF495A400620A55 /* String+Muon.swift */; };
 		89E9C2111AF4987D00620A55 /* StringExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C2101AF4987D00620A55 /* StringExtensionSpec.swift */; };
 /* End PBXBuildFile section */
@@ -545,7 +545,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Muon-OSX/Info.plist";
@@ -567,7 +566,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = YES;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Muon-OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
