@@ -12,7 +12,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/younata/Muon.git" }
   s.source_files  = "Muon", "Muon/**/*.{swift,h,m}"
 
-  s.framework = "XCTest"
   s.requires_arc = true
 end
 
