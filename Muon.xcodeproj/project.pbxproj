@@ -59,6 +59,10 @@
 		89CAD4E01BA4A203006D79FC /* atom_large.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8981316F1AFC75270090FA7F /* atom_large.xml */; };
 		89D427FD1B8CFB44006CD81C /* sparkfun.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89D427FC1B8CFB44006CD81C /* sparkfun.rss */; };
 		89D428011B8D0143006CD81C /* sparkfun1.html in Resources */ = {isa = PBXBuildFile; fileRef = 89D428001B8D0143006CD81C /* sparkfun1.html */; };
+		89E08DD61C43751E00E3D5FC /* xkcd.atom in Resources */ = {isa = PBXBuildFile; fileRef = 89E08DD51C43751E00E3D5FC /* xkcd.atom */; };
+		89E08DD71C43758B00E3D5FC /* xkcd.atom in Resources */ = {isa = PBXBuildFile; fileRef = 89E08DD51C43751E00E3D5FC /* xkcd.atom */; };
+		89E08DD91C437B1100E3D5FC /* xkcd.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89E08DD81C437B1100E3D5FC /* xkcd.rss */; };
+		89E08DDA1C437B1500E3D5FC /* xkcd.rss in Resources */ = {isa = PBXBuildFile; fileRef = 89E08DD81C437B1100E3D5FC /* xkcd.rss */; };
 		89E9C20F1AF495A400620A55 /* String+Muon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C20E1AF495A400620A55 /* String+Muon.swift */; };
 		89E9C2111AF4987D00620A55 /* StringExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9C2101AF4987D00620A55 /* StringExtensionSpec.swift */; };
 /* End PBXBuildFile section */
@@ -140,6 +144,8 @@
 		89BBC1161AF2BCA0006025AA /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		89D427FC1B8CFB44006CD81C /* sparkfun.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sparkfun.rss; sourceTree = "<group>"; };
 		89D428001B8D0143006CD81C /* sparkfun1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = sparkfun1.html; sourceTree = "<group>"; };
+		89E08DD51C43751E00E3D5FC /* xkcd.atom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = xkcd.atom; sourceTree = "<group>"; };
+		89E08DD81C437B1100E3D5FC /* xkcd.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = xkcd.rss; sourceTree = "<group>"; };
 		89E9C20E1AF495A400620A55 /* String+Muon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Muon.swift"; sourceTree = "<group>"; };
 		89E9C2101AF4987D00620A55 /* StringExtensionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -255,6 +261,8 @@
 				8967016D1AF1749300BCD0DD /* researchkit.rss */,
 				89D427FC1B8CFB44006CD81C /* sparkfun.rss */,
 				89D428001B8D0143006CD81C /* sparkfun1.html */,
+				89E08DD51C43751E00E3D5FC /* xkcd.atom */,
+				89E08DD81C437B1100E3D5FC /* xkcd.rss */,
 				89BBC10C1AF1EB2D006025AA /* rss091.rss */,
 				89BBC10E1AF1EB4E006025AA /* rss092.rss */,
 				89BBC1121AF1EC06006025AA /* rss100.rss */,
@@ -432,9 +440,11 @@
 			files = (
 				89CAD4E01BA4A203006D79FC /* atom_large.xml in Resources */,
 				89CAD4DA1BA4A203006D79FC /* rss092.rss in Resources */,
+				89E08DD71C43758B00E3D5FC /* xkcd.atom in Resources */,
 				89CAD4D71BA4A203006D79FC /* sparkfun.rss in Resources */,
 				89CAD4DF1BA4A203006D79FC /* rss2_large.rss in Resources */,
 				89CAD4DC1BA4A203006D79FC /* rss200.rss in Resources */,
+				89E08DDA1C437B1500E3D5FC /* xkcd.rss in Resources */,
 				89CAD4D81BA4A203006D79FC /* sparkfun1.html in Resources */,
 				89CAD4DD1BA4A203006D79FC /* atom100.xml in Resources */,
 				89CAD4DB1BA4A203006D79FC /* rss100.rss in Resources */,
@@ -457,9 +467,11 @@
 			files = (
 				89BBC1131AF1EC06006025AA /* rss100.rss in Resources */,
 				89BBC10D1AF1EB2D006025AA /* rss091.rss in Resources */,
+				89E08DD61C43751E00E3D5FC /* xkcd.atom in Resources */,
 				89BBC10F1AF1EB4E006025AA /* rss092.rss in Resources */,
 				89BBC1111AF1EB70006025AA /* rss200.rss in Resources */,
 				89D427FD1B8CFB44006CD81C /* sparkfun.rss in Resources */,
+				89E08DD91C437B1100E3D5FC /* xkcd.rss in Resources */,
 				898131741AFC75530090FA7F /* rss2_large.rss in Resources */,
 				898131701AFC75270090FA7F /* atom_large.xml in Resources */,
 				8967016E1AF1749300BCD0DD /* researchkit.rss in Resources */,

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>xkcd.com</title>
+        <link>http://xkcd.com/</link>
+        <description>xkcd.com: A webcomic of romance and math humor.</description>
+        <language>en</language>
+        <item>
+            <title>Magnus</title>
+            <link>http://xkcd.com/1628/</link>
+            <description>&lt;img src="http://imgs.xkcd.com/comics/magnus.png" title="In the latest round, 9-year-old Muhammad Ali beat 10-year-old JFK at air hockey, while Secretariat lost the hot-dog-eating crown to 12-year-old Ken Jennings. Meanwhile, in a huge upset, 11-year-old Martha Stewart knocked out the adult Ronda Rousey." alt="In the latest round, 9-year-old Muhammad Ali beat 10-year-old JFK at air hockey, while Secretariat lost the hot-dog-eating crown to 12-year-old Ken Jennings. Meanwhile, in a huge upset, 11-year-old Martha Stewart knocked out the adult Ronda Rousey." /&gt;</description>
+            <pubDate>Mon, 11 Jan 2016 05:00:00 -0000</pubDate>
+            <guid>http://xkcd.com/1628/</guid>
+        </item>
+        <item>
+            <title>Woosh</title>
+            <link>http://xkcd.com/1627/</link>
+            <description>&lt;img src="http://imgs.xkcd.com/comics/woosh.png" title="It also occasionally replies with 'Comment of the year', 'Are you for real', and 'I'm taking a screenshot so I can remember this moment forever'." alt="It also occasionally replies with 'Comment of the year', 'Are you for real', and 'I'm taking a screenshot so I can remember this moment forever'." /&gt;</description>
+            <pubDate>Fri, 08 Jan 2016 05:00:00 -0000</pubDate>
+            <guid>http://xkcd.com/1627/</guid>
+        </item>
+        <item>
+            <title>Judgment Day</title>
+            <link>http://xkcd.com/1626/</link>
+            <description>&lt;img src="http://imgs.xkcd.com/comics/judgment_day.png" title="It took a lot of booster rockets, but luckily Amazon had recently built thousands of them to bring Amazon Prime same-day delivery to the Moon colony." alt="It took a lot of booster rockets, but luckily Amazon had recently built thousands of them to bring Amazon Prime same-day delivery to the Moon colony." /&gt;</description>
+            <pubDate>Wed, 06 Jan 2016 05:00:00 -0000</pubDate>
+            <guid>http://xkcd.com/1626/</guid>
+        </item>
+        <item>
+            <title>Substitutions 2</title>
+            <link>http://xkcd.com/1625/</link>
+            <description>&lt;img src="http://imgs.xkcd.com/comics/substitutions_2.png" title="Within a few minutes, our roads will be full of uncontrollably-swerving cars and our skies full of Amazon delivery dogs." alt="Within a few minutes, our roads will be full of uncontrollably-swerving cars and our skies full of Amazon delivery dogs." /&gt;</description>
+            <pubDate>Mon, 04 Jan 2016 05:00:00 -0000</pubDate>
+            <guid>http://xkcd.com/1625/</guid>
+        </item>
+    </channel>
+</rss>

@@ -87,6 +87,67 @@ class IntegrationSpec: QuickSpec {
             }
         }
 
+        describe("xkcd (atom)") {
+            beforeEach {
+                parser = parserWithContentsOfFile("xkcd.atom")
+            }
+
+            it("should parse the feed") {
+                expect(feed).toNot(beNil())
+                if let feed = feed {
+                    expect(feed.title).to(equal("xkcd.com"))
+                    expect(feed.link).to(equal(NSURL(string: "http://xkcd.com/")!))
+                    expect(feed.lastUpdated).to(equal("2016-01-11T00:00:00Z".RFC3339Date()))
+                }
+            }
+
+            it("should parse the feed's items") {
+                expect(feed?.articles.count).to(equal(4))
+                if let article = feed?.articles.first {
+                    expect(article.title).to(equal("Magnus"))
+                    expect(article.link).to(equal(NSURL(string: "http://xkcd.com/1628/")))
+                    expect(article.guid).to(equal("http://xkcd.com/1628/"))
+                    expect(article.description).to(equal("<img src=\"http://imgs.xkcd.com/comics/magnus.png\" title=\"In the latest round, 9-year-old Muhammad Ali beat 10-year-old JFK at air hockey, while Secretariat lost the hot-dog-eating crown to 12-year-old Ken Jennings. Meanwhile, in a huge upset, 11-year-old Martha Stewart knocked out the adult Ronda Rousey.\" alt=\"In the latest round, 9-year-old Muhammad Ali beat 10-year-old JFK at air hockey, while Secretariat lost the hot-dog-eating crown to 12-year-old Ken Jennings. Meanwhile, in a huge upset, 11-year-old Martha Stewart knocked out the adult Ronda Rousey.\" />"))
+                    expect(article.content).to(beNil())
+                    let updated = "2016-01-11T00:00:00Z".RFC3339Date()
+                    expect(article.published).to(beNil())
+                    expect(article.updated).to(equal(updated))
+                    expect(article.enclosures.count).to(equal(0))
+                }
+            }
+        }
+
+        describe("xkcd (rss)") {
+            beforeEach {
+                parser = parserWithContentsOfFile("xkcd.rss")
+            }
+
+            it("should parse the feed") {
+                expect(feed).toNot(beNil())
+                if let feed = feed {
+                    expect(feed.title).to(equal("xkcd.com"))
+                    expect(feed.link).to(equal(NSURL(string: "http://xkcd.com/")!))
+                    expect(feed.description).to(equal("xkcd.com: A webcomic of romance and math humor."))
+                    expect(feed.language).to(equal(NSLocale(localeIdentifier: "en")))
+                }
+            }
+
+            it("should parse the feed's items") {
+                expect(feed?.articles.count).to(equal(4))
+                if let article = feed?.articles.first {
+                    expect(article.title).to(equal("Magnus"))
+                    expect(article.link).to(equal(NSURL(string: "http://xkcd.com/1628/")))
+                    expect(article.guid).to(equal("http://xkcd.com/1628/"))
+                    expect(article.description).to(equal("<img src=\"http://imgs.xkcd.com/comics/magnus.png\" title=\"In the latest round, 9-year-old Muhammad Ali beat 10-year-old JFK at air hockey, while Secretariat lost the hot-dog-eating crown to 12-year-old Ken Jennings. Meanwhile, in a huge upset, 11-year-old Martha Stewart knocked out the adult Ronda Rousey.\" alt=\"In the latest round, 9-year-old Muhammad Ali beat 10-year-old JFK at air hockey, while Secretariat lost the hot-dog-eating crown to 12-year-old Ken Jennings. Meanwhile, in a huge upset, 11-year-old Martha Stewart knocked out the adult Ronda Rousey.\" />"))
+                    expect(article.content).to(beNil())
+                    let updated = "Mon, 11 Jan 2016 05:00:00 -0000".RFC822Date()
+                    expect(article.published).to(equal(updated))
+                    expect(article.updated).to(beNil())
+                    expect(article.enclosures.count).to(equal(0))
+                }
+            }
+        }
+
         describe("RSS 0.91") {
             beforeEach {
                 parser = parserWithContentsOfFile("rss091.rss")

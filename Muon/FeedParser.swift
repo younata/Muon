@@ -332,7 +332,7 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
             articleHelper.link += str
         case "guid", "id":
             articleHelper.guid += str
-        case "description":
+        case "description", "summary":
             articleHelper.description += str
         case "pubdate", "published":
             articleHelper.published += str
@@ -394,7 +394,7 @@ public class FeedParser: NSOperation, NSXMLParserDelegate {
             }
         } else {
             if let href = attributeDict["href"] as? String where currentElement == "link" {
-                if attributeDict["rel"] == nil || attributeDict["rel"] as? String == "self" {
+                if attributeDict["rel"] == nil || attributeDict["rel"] as? String == "self" || attributeDict["rel"] as? String == "alternate" {
                     feedHelper.link = href
                 }
             }
