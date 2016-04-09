@@ -40,11 +40,11 @@ Make sure that `user_frameworks!` is defined in your Podfile
 
 Swift 2.0:
 
-* add `Pod "Muon" :git => "https://github.com/younata/Muon.git"`
+* add `pod "Muon", :git => "https://github.com/younata/Muon.git"`
 
 Swift 1.2:
 
-* add `Pod "Muon" :git => "https://github.com/younata/Muon.git", :tag => "v0.3.1"`
+* add `pod "Muon", :git => "https://github.com/younata/Muon.git", :tag => "v0.3.1"`
 
 ###ChangeLog
 
