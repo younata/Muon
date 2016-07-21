@@ -1,4 +1,4 @@
-public class Enclosure {
+public final class Enclosure {
     public let url : NSURL
     public let length : Int
     public let type : String

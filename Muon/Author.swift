@@ -1,4 +1,4 @@
-public class Author {
+public final class Author {
     public let name: String
     public let email: NSURL?
     public let uri: NSURL?

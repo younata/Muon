@@ -1,4 +1,4 @@
-public class Article {
+public final class Article {
     public let title : String?
     public let link : NSURL?
     public let guid : String?

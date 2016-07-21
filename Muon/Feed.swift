@@ -1,4 +1,4 @@
-public class Feed {
+public final class Feed {
     public let title: String
     public let link: NSURL
     public let description: String

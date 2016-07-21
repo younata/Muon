@@ -1,6 +1,6 @@
 import Foundation
 
-public class FeedParser: NSOperation, NSXMLParserDelegate {
+public final class FeedParser: NSOperation, NSXMLParserDelegate {
     public var completion : (Feed) -> Void = {_ in }
     public var onFailure : (NSError) -> Void = {_ in }
 
