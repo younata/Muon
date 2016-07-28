@@ -1,4 +1,4 @@
-public final class Article {
+public struct Article {
     public let title : String
     public let link : NSURL
     public let guid : String?
@@ -27,11 +27,11 @@ public final class Article {
         self.internalEnclosures = enclosures
     }
 
-    public func addAuthor(author: Author) {
+    mutating func addAuthor(author: Author) {
         self.internalAuthors.append(author)
     }
 
-    public func addEnclosure(enclosure: Enclosure) {
+    mutating func addEnclosure(enclosure: Enclosure) {
         self.internalEnclosures.append(enclosure)
     }
 }

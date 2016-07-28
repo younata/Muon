@@ -1,4 +1,4 @@
-public final class Feed {
+public struct Feed {
     public let title: String
     public let link: NSURL
     public let description: String
@@ -28,7 +28,7 @@ public final class Feed {
         self.imageURL = imageURL
     }
 
-    public func addArticle(article : Article) {
+    mutating func addArticle(article : Article) {
         self.internalArticles.append(article)
     }
 }
