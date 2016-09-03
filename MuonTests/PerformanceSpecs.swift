@@ -1,9 +1,9 @@
 import XCTest
 import Muon
 
-func parserWithContentsOfFile(fileName: String) -> FeedParser {
-    let location = NSBundle(forClass: AtomPerformanceTest.self).pathForResource(fileName, ofType: nil)!
-    let contents = try! String(contentsOfFile: location, encoding: NSUTF8StringEncoding)
+func parserWithContentsOfFile(_ fileName: String) -> FeedParser {
+    let location = Bundle(for: AtomPerformanceTest.self).path(forResource: fileName, ofType: nil)!
+    let contents = try! String(contentsOfFile: location, encoding: String.Encoding.utf8)
     let parser = FeedParser(string: contents)
     return parser
 }
@@ -11,7 +11,7 @@ func parserWithContentsOfFile(fileName: String) -> FeedParser {
 class RSS1PerformanceTest: XCTestCase {
     func testPerformance() {
         let parser = parserWithContentsOfFile("rss1_large.rss")
-        self.measureBlock {
+        self.measure {
             parser.main()
         }
     }
@@ -20,7 +20,7 @@ class RSS1PerformanceTest: XCTestCase {
 class RSS2PerformanceTest: XCTestCase {
     func testPerformance() {
         let parser = parserWithContentsOfFile("rss2_large.rss")
-        self.measureBlock {
+        self.measure {
             parser.main()
         }
     }
@@ -29,7 +29,7 @@ class RSS2PerformanceTest: XCTestCase {
 class AtomPerformanceTest: XCTestCase {
     func testPerformance() {
         let parser = parserWithContentsOfFile("atom_large.xml")
-        self.measureBlock {
+        self.measure {
             parser.main()
         }
     }

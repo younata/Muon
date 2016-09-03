@@ -4,25 +4,25 @@ import Foundation
 
 public extension String {
     public func hasOnlyWhitespace() -> Bool {
-        return rangeOfCharacterFromSet(NSCharacterSet.whitespaceAndNewlineCharacterSet().invertedSet) == nil
+        return rangeOfCharacter(from: CharacterSet.whitespacesAndNewlines.inverted) == nil
     }
 
-    public func RFC822Date() -> NSDate? {
+    public func RFC822Date() -> Date? {
 
         // Process
-        var date : NSDate? = nil
-        let str = uppercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        var date : Date? = nil
+        let str = uppercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
 
-        let dateFromFormat : (String) -> NSDate? = {formatString in
+        let dateFromFormat : (String) -> Date? = {formatString in
             dateFormatter.dateFormat = formatString
-            return dateFormatter.dateFromString(str)
+            return dateFormatter.date(from: str)
         }
 
-        if str.rangeOfString(",") != nil {
+        if str.range(of: ",") != nil {
             // Sun, 19 May 2002 15:21:36 PDT
             date = dateFromFormat("EEE, dd MMM yyyy HH:mm:ss zzz")
             // Sun, 19 May 2002 15:21 PDT
@@ -44,17 +44,17 @@ public extension String {
         return date
     }
 
-    public func RFC3339Date() -> NSDate? {
-        var date : NSDate? = nil
-        let str = uppercaseString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).stringByReplacingOccurrencesOfString("Z", withString: "-0000")
+    public func RFC3339Date() -> Date? {
+        var date : Date? = nil
+        let str = uppercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).replacingOccurrences(of: "Z", with: "-0000")
 
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
 
-        let dateFromFormat : (String) -> NSDate? = {formatString in
+        let dateFromFormat : (String) -> Date? = {formatString in
             dateFormatter.dateFormat = formatString
-            return dateFormatter.dateFromString(str)
+            return dateFormatter.date(from: str)
         }
 
         date = dateFromFormat("yyyy'-'MM'-'dd'T'HH':'mm':'sszzz")
@@ -64,10 +64,10 @@ public extension String {
     }
 
     public func escapeHtml() -> String{
-        var result = stringByReplacingOccurrencesOfString("&", withString: "&amp;")
-        result = result.stringByReplacingOccurrencesOfString("\"", withString: "&quot;")
-        result = result.stringByReplacingOccurrencesOfString("'", withString: "&#39;")
-        result = result.stringByReplacingOccurrencesOfString("<", withString: "&lt;")
-        return result.stringByReplacingOccurrencesOfString(">", withString: "&gt;")
+        var result = replacingOccurrences(of: "&", with: "&amp;")
+        result = result.replacingOccurrences(of: "\"", with: "&quot;")
+        result = result.replacingOccurrences(of: "'", with: "&#39;")
+        result = result.replacingOccurrences(of: "<", with: "&lt;")
+        return result.replacingOccurrences(of: ">", with: "&gt;")
     }
 }

@@ -23,12 +23,12 @@ class StringExtensionSpec: QuickSpec {
             context("With a day") {
                 context("with a listed timezone") {
                     it("parse a date with seconds") {
-                        let date = NSDate(timeIntervalSince1970: 1021846896.0)
+                        let date = Date(timeIntervalSince1970: 1021846896.0)
                         expect("Sun, 19 May 2002 15:21:36 PDT".RFC822Date()).to(equal(date))
                     }
 
                     it("parse a date without seconds as 0 seconds") {
-                        let date = NSDate(timeIntervalSince1970: 1021846860.0)
+                        let date = Date(timeIntervalSince1970: 1021846860.0)
                         expect("Sun, 19 May 2002 15:21 PDT".RFC822Date()).to(equal(date))
                     }
                 }
@@ -36,12 +36,12 @@ class StringExtensionSpec: QuickSpec {
                 context("without a listed timezone") {
                     // assume GMT
                     it("parse a date with seconds") {
-                        let date = NSDate(timeIntervalSince1970: 1021821696.0)
+                        let date = Date(timeIntervalSince1970: 1021821696.0)
                         expect("Sun, 19 May 2002 15:21:36".RFC822Date()).to(equal(date))
                     }
 
                     it("parse a date without seconds as 0 seconds") {
-                        let date = NSDate(timeIntervalSince1970: 1021821660.0)
+                        let date = Date(timeIntervalSince1970: 1021821660.0)
                         expect("Sun, 19 May 2002 15:21".RFC822Date()).to(equal(date))
                     }
                 }
@@ -50,12 +50,12 @@ class StringExtensionSpec: QuickSpec {
             context("Without a day") {
                 context("with a listed timezone") {
                     it("parse a date with seconds") {
-                        let date = NSDate(timeIntervalSince1970: 1021846896.0)
+                        let date = Date(timeIntervalSince1970: 1021846896.0)
                         expect("19 May 2002 15:21:36 PDT".RFC822Date()).to(equal(date))
                     }
 
                     it("parse a date without seconds as 0 seconds") {
-                        let date = NSDate(timeIntervalSince1970: 1021846860.0)
+                        let date = Date(timeIntervalSince1970: 1021846860.0)
                         expect("19 May 2002 15:21 PDT".RFC822Date()).to(equal(date))
                     }
                 }
@@ -63,12 +63,12 @@ class StringExtensionSpec: QuickSpec {
                 context("without a listed timezone") {
                     // assume GMT
                     it("parse a date with seconds") {
-                        let date = NSDate(timeIntervalSince1970: 1021821696.0)
+                        let date = Date(timeIntervalSince1970: 1021821696.0)
                         expect("19 May 2002 15:21:36".RFC822Date()).to(equal(date))
                     }
 
                     it("parse a date without seconds as 0 seconds") {
-                        let date = NSDate(timeIntervalSince1970: 1021821660.0)
+                        let date = Date(timeIntervalSince1970: 1021821660.0)
                         expect("19 May 2002 15:21".RFC822Date()).to(equal(date))
                     }
                 }
@@ -78,12 +78,12 @@ class StringExtensionSpec: QuickSpec {
         describe("Parsing RFC3339 dates") {
             context("with a timezone") {
                 it("parses the date") {
-                    let date = NSDate(timeIntervalSince1970: 1021846896.0)
+                    let date = Date(timeIntervalSince1970: 1021846896.0)
                     expect("2002-05-19T14:21:36-0800".RFC3339Date()).to(equal(date))
                 }
 
                 it("parses this weird other format") {
-                    let date = NSDate(timeIntervalSince1970: 1021846896.36)
+                    let date = Date(timeIntervalSince1970: 1021846896.36)
                     expect("2002-05-19T22:41:36.36+0020".RFC3339Date()).to(equal(date))
 
                 }
@@ -92,7 +92,7 @@ class StringExtensionSpec: QuickSpec {
             context("without a timezone") {
                 it("parse the date") {
                     // 1937-01-01T12:00:27
-                    let date = NSDate(timeIntervalSince1970: 1021821696.0)
+                    let date = Date(timeIntervalSince1970: 1021821696.0)
                     expect("2002-05-19T15:21:36".RFC3339Date()).to(equal(date))
 
                 }

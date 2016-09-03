@@ -1,25 +1,25 @@
 import Foundation
 
-public final class FeedParser: NSOperation, NSXMLParserDelegate {
+public final class FeedParser: Operation, XMLParserDelegate {
     public var completion : (Feed) -> Void = {_ in }
     public var onFailure : (NSError) -> Void = {_ in }
 
-    private var content : NSData? = nil
+    private var content : Data? = nil
     private var contentString : String? = nil
 
-    public func success(onSuccess: (Feed) -> Void) -> FeedParser {
+    public func success(_ onSuccess: @escaping (Feed) -> Void) -> FeedParser {
         completion = onSuccess
         return self
     }
 
-    public func failure(failed: (NSError) -> Void) -> FeedParser {
+    public func failure(_ failed: @escaping (NSError) -> Void) -> FeedParser {
         onFailure = failed
         return self
     }
 
     public init(string: String) {
         contentString = string
-        content = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+        content = string.data(using: String.Encoding.utf8, allowLossyConversion: false)
         super.init()
     }
 
@@ -27,9 +27,9 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
         super.init()
     }
 
-    public func configureWithString(string: String) {
+    public func configureWithString(_ string: String) {
         contentString = string
-        content = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+        content = string.data(using: String.Encoding.utf8, allowLossyConversion: false)
     }
 
     // MARK - NSOperation
@@ -51,11 +51,11 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
 
     private func parse() {
         if let content = self.content {
-            if content.length == 0 {
+            if content.count == 0 {
                 self.onFailure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No Feed Found"]))
                 return
             }
-            let parser = NSXMLParser(data: content)
+            let parser = XMLParser(data: content)
             self.parser = parser
             parser.delegate = self
             parser.shouldProcessNamespaces = true
@@ -68,7 +68,7 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
         }
     }
 
-    public func parserDidEndDocument(parser: NSXMLParser) {
+    public func parserDidEndDocument(_ parser: XMLParser) {
         self.parser = nil
         if let feed = self.feed {
             self.completion(feed)
@@ -77,17 +77,17 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
         }
     }
 
-    public func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
+    public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         self.parser = nil
-        self.onFailure(parseError)
+        self.onFailure(parseError as NSError)
     }
 
     private var feed : Feed? = nil
-    private var parser : NSXMLParser? = nil
+    private var parser : XMLParser? = nil
 
     var currentPath : [String] = []
     var parseStructureAsContent = false
-    var lastAttributes : [NSObject: AnyObject] = [:]
+    var lastAttributes : [String: String] = [:]
 
     private var feedHelper = FeedHelper()
 
@@ -135,7 +135,7 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
             if currentPath.count < path.count {
                 return false
             }
-            for (i,x) in path.enumerate() {
+            for (i,x) in path.enumerated() {
                 if currentPath[i] != x {
                     return false
                 }
@@ -145,8 +145,8 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
         return false
     }
 
-    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String]) {
-        let name = (qName?.rangeOfString("content") != nil ? "content" : elementName).lowercaseString
+    public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String]) {
+        let name = (qName?.range(of: "content") != nil ? "content" : elementName).lowercased()
         currentPath.append(name)
 
         if isAtomXHTML {
@@ -175,18 +175,18 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
             atomArticleContent = []
         } else if currentPath == ["rss", "channel", "item", "enclosure"] { // enclosure for RSS 2.0-compatible feeds
             parseRSSEnclosure(attributeDict)
-        } else if let imageURL = attributeDict["rdf:resource"] where currentPath == ["rdf", "channel", "image"] { // RSS 1.0 image
+        } else if let imageURL = attributeDict["rdf:resource"] , currentPath == ["rdf", "channel", "image"] { // RSS 1.0 image
             parseChannel("image", str: imageURL)
-        } else if let currentElement = currentPath.last where currentPath.first == "feed" && attributeDict.count != 0 { // Atom makes extensive use of attributes
+        } else if let currentElement = currentPath.last , currentPath.first == "feed" && attributeDict.count != 0 { // Atom makes extensive use of attributes
             parseAtomItem(currentElement, attributeDict: attributeDict)
         } else if name == "author" {
             authorHelper = AuthorHelper()
         }
     }
 
-    private func parseCharacters(string: String) {
+    private func parseCharacters(_ string: String) {
         if let currentItem = currentPath.last {
-            if let lastEntry = atomArticleContent.last where isAtomXHTML {
+            if let lastEntry = atomArticleContent.last , isAtomXHTML {
                 if lastEntry.hasPrefix(parseAtomContentBeginTag(currentItem, attributes: lastAttributes)) {
                     atomArticleContent[atomArticleContent.count - 1] = lastEntry + ">"
                     atomArticleContent.append(string)
@@ -215,26 +215,26 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
         }
     }
 
-    public func parser(parser: NSXMLParser, foundCharacters string: String) {
+    public func parser(_ parser: XMLParser, foundCharacters string: String) {
         self.parseCharacters(string)
     }
 
-    public func parser(parser: NSXMLParser, foundIgnorableWhitespace whitespaceString: String) {
+    public func parser(_ parser: XMLParser, foundIgnorableWhitespace whitespaceString: String) {
         self.parseCharacters(whitespaceString)
     }
 
-    private func stringOrNil(string: String) -> String? {
+    private func stringOrNil(_ string: String) -> String? {
         if (string == "") {
             return nil
         }
         return string
     }
 
-    public func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        let name = (qName?.rangeOfString("content") != nil ? "content" : elementName).lowercaseString
-        for (idx, item) in Array(currentPath.reverse()).enumerate() {
-            if item == name.lowercaseString {
-                currentPath.removeAtIndex(currentPath.count - (idx + 1))
+    public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        let name = (qName?.range(of: "content") != nil ? "content" : elementName).lowercased()
+        for (idx, item) in Array(currentPath.reversed()).enumerated() {
+            if item == name.lowercased() {
+                currentPath.remove(at: currentPath.count - (idx + 1))
                 break
             }
         }
@@ -248,24 +248,24 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
             }
             if atomXHTMLPath ?? [] == currentPath {
                 // flatten atomArticleContent
-                articleHelper.content = atomArticleContent.joinWithSeparator("")
+                articleHelper.content = atomArticleContent.joined(separator: "")
                 atomXHTMLPath = nil
             }
         } else if name == "channel" || name == "feed" {
             // parse and create a feed
-            let link = NSURL(string: feedHelper.link)!
+            let link = URL(string: feedHelper.link)
             let language = stringOrNil(feedHelper.language)
             let locale : NSLocale? = language != nil ? NSLocale(localeIdentifier: feedHelper.language) : nil
             let lastUpdated = feedHelper.lastUpdated.RFC822Date() ?? feedHelper.lastUpdated.RFC3339Date()
             let pubDate = feedHelper.publicationDate.RFC822Date()
             let copyright = stringOrNil(feedHelper.copyright)
-            let imageURL = NSURL(string: feedHelper.imageURL)
+            let imageURL = URL(string: feedHelper.imageURL)
             feed = Feed(title: feedHelper.title, link: link, description: feedHelper.description, articles: articles, language: locale,
                         lastUpdated: lastUpdated, publicationDate: pubDate, imageURL: imageURL, copyright: copyright)
         } else if name == "item" || name == "entry" {
             // parse and create an article
             let title = stringOrNil(articleHelper.title)
-            let link = !articleHelper.link.hasOnlyWhitespace() ? NSURL(string: articleHelper.link) : nil
+            let link = !articleHelper.link.hasOnlyWhitespace() ? URL(string: articleHelper.link) : nil
             let guid = stringOrNil(articleHelper.guid)
             let description = stringOrNil(articleHelper.description)
             let content = stringOrNil(articleHelper.content)
@@ -274,7 +274,7 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
 
             let authorsToUse = authors.count == 0 ? feedAuthors : authors
 
-            let article = Article(title: title, link: link, description: description, content: content, guid: guid, published: published, updated: updated, authors: authorsToUse, enclosures: enclosures)
+            let article = Article(title: title, link: link as URL?, description: description, content: content, guid: guid, published: published, updated: updated, authors: authorsToUse, enclosures: enclosures)
 
             if currentPath.first == "rdf" { // RSS 1.0
                 feed?.addArticle(article)
@@ -285,9 +285,9 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
             authors = []
         } else if name == "author" || name == "contributor" {
             let name = authorHelper.name
-            let email = !authorHelper.email.hasOnlyWhitespace() ? NSURL(string: authorHelper.email) : nil
-            let uri = !authorHelper.uri.hasOnlyWhitespace() ? NSURL(string: authorHelper.uri) : nil
-            let author = Author(name: name, email: email, uri: uri)
+            let email = !authorHelper.email.hasOnlyWhitespace() ? URL(string: authorHelper.email) : nil
+            let uri = !authorHelper.uri.hasOnlyWhitespace() ? URL(string: authorHelper.uri) : nil
+            let author = Author(name: name, email: email as URL?, uri: uri as URL?)
             if currentPath.contains("entry") || currentPath.contains("item") {
                 authors.append(author)
             } else {
@@ -298,7 +298,7 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
         lastAttributes = [:]
     }
 
-    private func parseChannel(currentElement: String, str: String) {
+    private func parseChannel(_ currentElement: String, str: String) {
         if parseAuthor(currentElement, str: str) {
             return
         }
@@ -316,12 +316,12 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
         case "copyright", "rights":
             feedHelper.copyright += str
         case "image", "icon":
-            feedHelper.imageURL += str.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            feedHelper.imageURL += str.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         default: break
         }
     }
 
-    private func parseItem(currentElement: String, str: String) {
+    private func parseItem(_ currentElement: String, str: String) {
         if parseAuthor(currentElement, str: str) {
             return
         }
@@ -344,7 +344,7 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
         }
     }
 
-    private func parseAuthor(currentElement: String, str: String) -> Bool {
+    private func parseAuthor(_ currentElement: String, str: String) -> Bool {
         if currentPath.contains("author") || currentPath.contains("contributor") {
             if currentPath.first == "feed" { // Atom
                 switch (currentElement) {
@@ -365,23 +365,23 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
         return false
     }
 
-    private func parseRSSEnclosure(attributeDict: [NSObject: AnyObject]) {
-        if let url = NSURL(string: attributeDict["url"] as? String ?? ""),
-            let type = attributeDict["type"] as? String,
-            let lenStr = attributeDict["length"] as? String, let length = Int(lenStr) {
+    private func parseRSSEnclosure(_ attributeDict: [String: String]) {
+        if let url = URL(string: attributeDict["url"] ?? ""),
+            let type = attributeDict["type"],
+            let lenStr = attributeDict["length"], let length = Int(lenStr) {
                 let enclosure = Enclosure(url: url, length: length, type: type)
                 enclosures.append(enclosure)
         }
     }
 
-    private func parseAtomItem(currentElement: String, attributeDict: [NSObject: AnyObject]) {
+    private func parseAtomItem(_ currentElement: String, attributeDict: [String: String]) {
         if currentPath.contains("entry") {
             switch (currentElement) {
             case "link":
-                if let href = attributeDict["href"] as? String {
-                    if attributeDict["rel"] as? String == "enclosure" {
-                        if let type = attributeDict["type"] as? String, let lengthString = attributeDict["length"] as? String,
-                            let length = Int(lengthString), let href = attributeDict["href"] as? String, let url = NSURL(string: href) {
+                if let href = attributeDict["href"] {
+                    if attributeDict["rel"] == "enclosure" {
+                        if let type = attributeDict["type"], let lengthString = attributeDict["length"],
+                            let length = Int(lengthString), let href = attributeDict["href"], let url = URL(string: href) {
                                 let enclosure = Enclosure(url: url, length: length, type: type)
                                 enclosures.append(enclosure)
                         }
@@ -393,20 +393,18 @@ public final class FeedParser: NSOperation, NSXMLParserDelegate {
                 break;
             }
         } else {
-            if let href = attributeDict["href"] as? String where currentElement == "link" {
-                if attributeDict["rel"] == nil || attributeDict["rel"] as? String == "self" || attributeDict["rel"] as? String == "alternate" {
+            if let href = attributeDict["href"], currentElement == "link" {
+                if attributeDict["rel"] == nil || attributeDict["rel"] == "self" || attributeDict["rel"] == "alternate" {
                     feedHelper.link = href
                 }
             }
         }
     }
 
-    private func parseAtomContentBeginTag(tag: String, attributes: [NSObject: AnyObject]) -> String {
+    private func parseAtomContentBeginTag(_ tag: String, attributes: [String: String]) -> String {
         var ret = "<\(tag)"
-        for key in attributes {
-            if let val = key.1 as? String {
-                ret += " \(key.0)=\"\(val.escapeHtml())\""
-            }
+        for (key, val) in attributes {
+            ret += " \(key)=\"\(val.escapeHtml())\""
         }
         return ret
     }

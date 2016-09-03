@@ -14,13 +14,13 @@ class FeedParserSpec: QuickSpec {
             }
 
             it("call onFailure if main is called") {
-                let expectation = self.expectationWithDescription("errorShouldBeCalled")
-                subject.failure {error in
+                let expectation = self.expectation(description: "errorShouldBeCalled")
+                _ = subject.failure {error in
                     expect(error.localizedDescription).to(equal("No Feed Found"))
                     expectation.fulfill()
                 }
                 subject.main()
-                self.waitForExpectationsWithTimeout(1, handler: { _ in })
+                self.waitForExpectations(timeout: 1, handler: { _ in })
             }
         }
 
@@ -31,7 +31,7 @@ class FeedParserSpec: QuickSpec {
 
             it("should succeed when main is called") {
                 var feed: Feed? = nil
-                subject.success { feed = $0 }
+                _ = subject.success { feed = $0 }
                 subject.main()
                 expect(feed).toEventuallyNot(beNil())
             }
@@ -44,7 +44,7 @@ class FeedParserSpec: QuickSpec {
 
             it("immediately call onFailure if main is called") {
                 var error: NSError? = nil
-                subject.failure { error = $0 }
+                _ = subject.failure { error = $0 }
                 subject.main()
                 expect(error).toNot(beNil())
                 expect(error?.localizedDescription).to(equal("Must be configured with data"))
@@ -57,7 +57,7 @@ class FeedParserSpec: QuickSpec {
 
                 it("should succeed when main is called") {
                     var feed: Feed? = nil
-                    subject.success { feed = $0 }
+                    _ = subject.success { feed = $0 }
                     subject.main()
                     expect(feed).toEventuallyNot(beNil())
                 }

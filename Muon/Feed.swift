@@ -1,21 +1,21 @@
 import Foundation
 public struct Feed {
     public let title: String
-    public let link: NSURL
+    public let link: URL?
     public let description: String
     public let language: NSLocale?
-    public let lastUpdated: NSDate?
-    public let publicationDate: NSDate?
+    public let lastUpdated: Date?
+    public let publicationDate: Date?
     public let copyright: String?
 
-    public let imageURL: NSURL?
+    public let imageURL: URL?
 
     private var internalArticles: [Article] = []
 
     public var articles: [Article] { return internalArticles }
 
-    public init(title: String, link: NSURL, description : String, articles: [Article], language: NSLocale? = nil,
-         lastUpdated : NSDate? = nil, publicationDate : NSDate? = nil, imageURL: NSURL? = nil, copyright: String? = nil) {
+    public init(title: String, link: URL?, description : String, articles: [Article], language: NSLocale? = nil,
+         lastUpdated : Date? = nil, publicationDate : Date? = nil, imageURL: URL? = nil, copyright: String? = nil) {
         self.title = title
         self.link = link
         self.description = description
@@ -29,7 +29,7 @@ public struct Feed {
         self.imageURL = imageURL
     }
 
-    mutating func addArticle(article : Article) {
+    mutating func addArticle(_ article : Article) {
         self.internalArticles.append(article)
     }
 }
