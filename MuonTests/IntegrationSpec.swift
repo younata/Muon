@@ -12,7 +12,7 @@ class IntegrationSpec: QuickSpec {
             let location = Bundle(for: self.classForCoder).path(forResource: fileName, ofType: nil)!
             let contents = try! String(contentsOfFile: location, encoding: String.Encoding.utf8)
             let parser = FeedParser(string: contents)
-            parser.success { feed = $0; }
+            _ = parser.success { feed = $0; }
 
             parser.main()
 
@@ -34,7 +34,7 @@ class IntegrationSpec: QuickSpec {
                     expect(feed.title).to(equal("ResearchKit Blog - ResearchKit.org"))
                     expect(feed.link).to(equal(URL(string: "http://researchkit.org/blog.html")!))
                     expect(feed.description).to(equal("Get the latest news and helpful tips on ResearchKit."))
-                    expect(feed.language).to(equal(NSLocale(localeIdentifier: "en-US")))
+                    expect(feed.language).to(equal(Locale(identifier: "en-US")))
                     let buildDate = "Tue, 14 Apr 2015 10:00:00 PDT".RFC822Date()
                     expect(feed.lastUpdated).to(equal(buildDate))
                     expect(feed.copyright).to(equal("Copyright 2015, Apple Inc."))
@@ -128,7 +128,7 @@ class IntegrationSpec: QuickSpec {
                     expect(feed.title).to(equal("xkcd.com"))
                     expect(feed.link).to(equal(URL(string: "http://xkcd.com/")!))
                     expect(feed.description).to(equal("xkcd.com: A webcomic of romance and math humor."))
-                    expect(feed.language).to(equal(NSLocale(localeIdentifier: "en")))
+                    expect(feed.language).to(equal(Locale(identifier: "en")))
                 }
             }
 
@@ -159,7 +159,7 @@ class IntegrationSpec: QuickSpec {
                     expect(feed.title).to(equal("WriteTheWeb"))
                     expect(feed.link).to(equal(URL(string: "http://writetheweb.com")))
                     expect(feed.description).to(equal("News for web users that write back"))
-                    expect(feed.language).to(equal(NSLocale(localeIdentifier: "en-us")))
+                    expect(feed.language).to(equal(Locale(identifier: "en-us")))
                     expect(feed.copyright).to(equal("Copyright 2000, WriteTheWeb team."))
                     expect(feed.imageURL).to(equal(URL(string: "http://writetheweb.com/images/mynetscape88.gif")))
                 }
@@ -249,7 +249,7 @@ class IntegrationSpec: QuickSpec {
                     expect(feed.title).to(equal("Liftoff News"))
                     expect(feed.link).to(equal(URL(string: "http://liftoff.msfc.nasa.gov/")))
                     expect(feed.description).to(equal("Liftoff to Space Exploration."))
-                    expect(feed.language).to(equal(NSLocale(localeIdentifier: "en-us")))
+                    expect(feed.language).to(equal(Locale(identifier: "en-us")))
                     let date = "Tue, 10 Jun 2003 09:41:01 GMT".RFC822Date()
                     expect(feed.lastUpdated).to(equal(date))
                 }

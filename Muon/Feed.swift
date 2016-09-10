@@ -3,7 +3,7 @@ public struct Feed {
     public let title: String
     public let link: URL?
     public let description: String
-    public let language: NSLocale?
+    public let language: Locale?
     public let lastUpdated: Date?
     public let publicationDate: Date?
     public let copyright: String?
@@ -14,7 +14,7 @@ public struct Feed {
 
     public var articles: [Article] { return internalArticles }
 
-    public init(title: String, link: URL?, description : String, articles: [Article], language: NSLocale? = nil,
+    public init(title: String, link: URL?, description : String, articles: [Article], language: Locale? = nil,
          lastUpdated : Date? = nil, publicationDate : Date? = nil, imageURL: URL? = nil, copyright: String? = nil) {
         self.title = title
         self.link = link
