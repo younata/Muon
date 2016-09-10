@@ -15,7 +15,7 @@ public extension String {
 
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
 
         let dateFromFormat : (String) -> Date? = {formatString in
             dateFormatter.dateFormat = formatString
@@ -50,7 +50,7 @@ public extension String {
 
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") as Locale!
 
         let dateFromFormat : (String) -> Date? = {formatString in
             dateFormatter.dateFormat = formatString

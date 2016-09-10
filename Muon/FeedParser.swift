@@ -255,7 +255,7 @@ public final class FeedParser: Operation, XMLParserDelegate {
             // parse and create a feed
             let link = URL(string: feedHelper.link)
             let language = stringOrNil(feedHelper.language)
-            let locale : NSLocale? = language != nil ? NSLocale(localeIdentifier: feedHelper.language) : nil
+            let locale : Locale? = language != nil ? Locale(identifier: feedHelper.language) : nil
             let lastUpdated = feedHelper.lastUpdated.RFC822Date() ?? feedHelper.lastUpdated.RFC3339Date()
             let pubDate = feedHelper.publicationDate.RFC822Date()
             let copyright = stringOrNil(feedHelper.copyright)
