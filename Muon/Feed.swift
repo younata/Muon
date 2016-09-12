@@ -1,3 +1,4 @@
+import Foundation
 public struct Feed {
     public let title: String
     public let link: NSURL

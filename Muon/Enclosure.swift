@@ -1,3 +1,4 @@
+import Foundation
 public struct Enclosure {
     public let url : NSURL
     public let length : Int
