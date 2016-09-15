@@ -1,7 +1,5 @@
 import Foundation
 
-//private let dateFormatter = NSDateFormatter()
-
 public extension String {
     public func hasOnlyWhitespace() -> Bool {
         return rangeOfCharacter(from: CharacterSet.whitespacesAndNewlines.inverted) == nil

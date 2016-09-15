@@ -9,7 +9,7 @@ RSS/Atom parser written in swift.
 ```swift
 import Muon
 
-let myRSSFeed = String(contentsOfURL: "https://example.com/feed.rss", encoding: NSUTF8StringEncoding)
+let myRSSFeed = try! String(contentsOf: URL(string: "https://example.com/feed.rss")!)
 let parser = FeedParser(string: myRSSFeed)
 
 parser.success {
@@ -19,34 +19,44 @@ parser.failure {
     print("Failed to parse: \($0)")
 }
 
-parser.main() // or add to an NSOperationQueue
+parser.main() // or add to an OperationQueue
 ```
 
 ###Installing
 
 ####Carthage
 
-Swift 2.0:
+Swift 3.0
 
 * add `github "younata/Muon"`
 
-Swift 1.2:
+Swift 2.0-2.2:
 
-* add `github "younata/Muon" "0.3.1"`
+* add `github "younata/Muon" "0.5.0"`
 
 ####Cocoapods
 
-Make sure that `user_frameworks!` is defined in your Podfile
+Make sure that `use_frameworks!` is defined in your Podfile
 
-Swift 2.0:
+Swift 3.0:
 
 * add `pod "Muon", :git => "https://github.com/younata/Muon.git"`
 
-Swift 1.2:
+Swift 2.0-2.2:
 
-* add `pod "Muon", :git => "https://github.com/younata/Muon.git", :tag => "v0.3.1"`
+* add `pod "Muon", :git => "https://github.com/younata/Muon.git", :tag => "v0.5.0"`
 
 ###ChangeLog
+
+#### 0.6.0
+
+- Swift 3.0
+- Model objects now import Foundation
+
+#### 0.5.0
+
+- Make Muon models (Feed, Article, Author, Enclosure) into structs
+- Articles now have mostly non-optional properties (going away from the pure RSS/Atom specs to be more opinionated).
 
 #### 0.4.0
 
