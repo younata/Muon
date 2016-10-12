@@ -28,7 +28,7 @@ parser.main() // or add to an OperationQueue
 
 Swift 3.0
 
-* add `github "younata/Muon"`
+* add `github "younata/Muon" "master"`
 
 Swift 2.0-2.2:
 
