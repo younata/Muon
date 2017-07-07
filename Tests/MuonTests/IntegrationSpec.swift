@@ -1,22 +1,23 @@
 import Quick
 import Nimble
+import Foundation
 import Muon
 
 class IntegrationSpec: QuickSpec {
     override func spec() {
-        var parser: FeedParser! = nil
+        var parser: FeedParser? = nil
 
         var feed: Feed? = nil
 
-        let parserWithContentsOfFile : (String) -> FeedParser = {fileName in
-            let location = Bundle(for: self.classForCoder).path(forResource: fileName, ofType: nil)!
-            let contents = try! String(contentsOfFile: location, encoding: String.Encoding.utf8)
-            let parser = FeedParser(string: contents)
-            _ = parser.success { feed = $0; }
+        let generateParser : (String) -> FeedParser? = {fileName in
+            if let parser = parserWithContentsOfFile(fileName) {
+                _ = parser.success { feed = $0; }
 
-            parser.main()
+                parser.main()
 
-            return parser
+                return parser
+            }
+            return nil
         }
 
         afterEach {
@@ -25,7 +26,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("Apple") {
             beforeEach {
-                parser = parserWithContentsOfFile("researchkit.rss")
+                parser = generateParser("researchkit.rss")
             }
 
             it("should parse the feed") {
@@ -59,7 +60,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("Sparkfun") {
             beforeEach {
-                parser = parserWithContentsOfFile("sparkfun.rss")
+                parser = generateParser("sparkfun.rss")
             }
 
             it("should parse the feed") {
@@ -77,7 +78,8 @@ class IntegrationSpec: QuickSpec {
                     expect(article.link).to(equal(URL(string: "https://www.sparkfun.com/news/1910")))
                     expect(article.guid).to(equal("urn:uuid:b591fe6f-ed76-e46a-ffc0-66cac3fac399"))
                     expect(article.description).to(equal(""))
-                    let loadedString = try? String(contentsOfFile: Bundle(for: self.classForCoder).path(forResource: "sparkfun1", ofType: "html")!, encoding: String.Encoding.utf8).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                    let sparkfun1 = read(file: "sparkfun1.html")
+                    let loadedString = sparkfun1?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     expect(article.content).to(match(loadedString))
                     let updated = "2015-08-25T08:43:06-06:00".RFC3339Date()
                     expect(article.published).toNot(beNil())
@@ -89,7 +91,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("xkcd (atom)") {
             beforeEach {
-                parser = parserWithContentsOfFile("xkcd.atom")
+                parser = generateParser("xkcd.atom")
             }
 
             it("should parse the feed") {
@@ -119,7 +121,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("xkcd (rss)") {
             beforeEach {
-                parser = parserWithContentsOfFile("xkcd.rss")
+                parser = generateParser("xkcd.rss")
             }
 
             it("should parse the feed") {
@@ -150,7 +152,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("RSS 0.91") {
             beforeEach {
-                parser = parserWithContentsOfFile("rss091.rss")
+                parser = generateParser("rss091.rss")
             }
 
             it("should parse the feed") {
@@ -177,7 +179,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("RSS 0.92") {
             beforeEach {
-                parser = parserWithContentsOfFile("rss092.rss")
+                parser = generateParser("rss092.rss")
             }
 
             it("should parse the feed") {
@@ -210,7 +212,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("RSS 1.0") {
             beforeEach {
-                parser = parserWithContentsOfFile("rss100.rss")
+                parser = generateParser("rss100.rss")
             }
 
             it("should parse the feed") {
@@ -240,7 +242,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("RSS 2.0") {
             beforeEach {
-                parser = parserWithContentsOfFile("rss200.rss")
+                parser = generateParser("rss200.rss")
             }
 
             it("should parse the feed") {
@@ -278,7 +280,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("Atom 1.0") {
             beforeEach {
-                parser = parserWithContentsOfFile("atom100.xml")
+                parser = generateParser("atom100.xml")
             }
 
             it("should parse the feed") {

@@ -1,8 +1,25 @@
 import Foundation
 
+public enum FeedParserError: Error {
+    case noFeed
+    case noData
+    case noFeedParsed
+
+    var localizedDescription: String {
+        switch (self) {
+        case .noFeed:
+            return "No Feed Found"
+        case .noData:
+            return "Must be configured with data"
+        case .noFeedParsed:
+            return "Could not parse a feed"
+        }
+    }
+}
+
 public final class FeedParser: Operation, XMLParserDelegate {
     public var completion : (Feed) -> Void = {_ in }
-    public var onFailure : (NSError) -> Void = {_ in }
+    public var onFailure : (Error) -> Void = {_ in }
 
     private var content : Data? = nil
     private var contentString : String? = nil
@@ -12,7 +29,7 @@ public final class FeedParser: Operation, XMLParserDelegate {
         return self
     }
 
-    public func failure(_ failed: @escaping (NSError) -> Void) -> FeedParser {
+    public func failure(_ failed: @escaping (Error) -> Void) -> FeedParser {
         onFailure = failed
         return self
     }
@@ -52,7 +69,7 @@ public final class FeedParser: Operation, XMLParserDelegate {
     private func parse() {
         if let content = self.content {
             if content.count == 0 {
-                self.onFailure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No Feed Found"]))
+                self.onFailure(FeedParserError.noFeed)
                 return
             }
             let parser = XMLParser(data: content)
@@ -61,10 +78,9 @@ public final class FeedParser: Operation, XMLParserDelegate {
             parser.shouldProcessNamespaces = true
             currentPath = []
             articles = []
-            parser.parse()
+            _ = parser.parse()
         } else {
-            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Must be configured with data"])
-            self.onFailure(error)
+            self.onFailure(FeedParserError.noData)
         }
     }
 
@@ -73,13 +89,13 @@ public final class FeedParser: Operation, XMLParserDelegate {
         if let feed = self.feed {
             self.completion(feed)
         } else {
-            self.onFailure(NSError(domain: "", code: 0, userInfo: [:]))
+            self.onFailure(FeedParserError.noFeedParsed)
         }
     }
 
     public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         self.parser = nil
-        self.onFailure(parseError as NSError)
+        self.onFailure(parseError)
     }
 
     private var feed : Feed? = nil

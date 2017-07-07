@@ -1,5 +1,6 @@
 import Quick
 import Nimble
+import Foundation
 import Muon
 
 class StringExtensionSpec: QuickSpec {

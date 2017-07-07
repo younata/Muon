@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		893B9B221F0F36D000A5B525 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893B9B1F1F0F369900A5B525 /* Helpers.swift */; };
+		893B9B231F0F36D100A5B525 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893B9B1F1F0F369900A5B525 /* Helpers.swift */; };
 		8967016C1AF1747C00BCD0DD /* IntegrationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8967016B1AF1747C00BCD0DD /* IntegrationSpec.swift */; };
 		8967016E1AF1749300BCD0DD /* researchkit.rss in Resources */ = {isa = PBXBuildFile; fileRef = 8967016D1AF1749300BCD0DD /* researchkit.rss */; };
 		8981316E1AFC745F0090FA7F /* PerformanceSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8981316D1AFC745F0090FA7F /* PerformanceSpecs.swift */; };
@@ -112,6 +114,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		893B9B1F1F0F369900A5B525 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8967016B1AF1747C00BCD0DD /* IntegrationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationSpec.swift; sourceTree = "<group>"; };
 		8967016D1AF1749300BCD0DD /* researchkit.rss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = researchkit.rss; sourceTree = "<group>"; };
 		8981316D1AFC745F0090FA7F /* PerformanceSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceSpecs.swift; sourceTree = "<group>"; };
@@ -262,6 +265,7 @@
 		898EFC011AE21B5100DD1F09 /* MuonTests */ = {
 			isa = PBXGroup;
 			children = (
+				893B9B1F1F0F369900A5B525 /* Helpers.swift */,
 				898131791AFE64B00090FA7F /* FeedParserSpec.swift */,
 				8967016B1AF1747C00BCD0DD /* IntegrationSpec.swift */,
 				8981316D1AFC745F0090FA7F /* PerformanceSpecs.swift */,
@@ -516,6 +520,7 @@
 				898979911B70861B00218498 /* FeedParserSpec.swift in Sources */,
 				898979931B70861B00218498 /* PerformanceSpecs.swift in Sources */,
 				898979921B70861B00218498 /* IntegrationSpec.swift in Sources */,
+				893B9B231F0F36D100A5B525 /* Helpers.swift in Sources */,
 				898979941B70861B00218498 /* StringExtensionSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,6 +545,7 @@
 				8967016C1AF1747C00BCD0DD /* IntegrationSpec.swift in Sources */,
 				8981316E1AFC745F0090FA7F /* PerformanceSpecs.swift in Sources */,
 				89E9C2111AF4987D00620A55 /* StringExtensionSpec.swift in Sources */,
+				893B9B221F0F36D000A5B525 /* Helpers.swift in Sources */,
 				8981317A1AFE64B00090FA7F /* FeedParserSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

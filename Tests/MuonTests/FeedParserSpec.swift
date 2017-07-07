@@ -1,5 +1,6 @@
 import Quick
 import Nimble
+import Foundation
 import Muon
 
 let feed = "<rss><channel></channel></rss>"
@@ -16,7 +17,7 @@ class FeedParserSpec: QuickSpec {
             it("call onFailure if main is called") {
                 let expectation = self.expectation(description: "errorShouldBeCalled")
                 _ = subject.failure {error in
-                    expect(error.localizedDescription).to(equal("No Feed Found"))
+                    expect(error as? FeedParserError).to(equal(FeedParserError.noFeed))
                     expectation.fulfill()
                 }
                 subject.main()
@@ -43,11 +44,11 @@ class FeedParserSpec: QuickSpec {
             }
 
             it("immediately call onFailure if main is called") {
-                var error: NSError? = nil
+                var error: Error? = nil
                 _ = subject.failure { error = $0 }
                 subject.main()
                 expect(error).toNot(beNil())
-                expect(error?.localizedDescription).to(equal("Must be configured with data"))
+                expect(error as? FeedParserError).to(equal(FeedParserError.noData))
             }
 
             describe("after configuring") {
