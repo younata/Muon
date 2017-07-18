@@ -17,7 +17,7 @@ MUON_SYSTEM_LIBRARY = $(MUON_INHERITED) "$(PLATFORM_DIR)/Developer/Library/Frame
 MUON_SEARCH_PATHS[sdk=iphoneos*] = $(MUON_SYSTEM_LIBRARY) "$(SRCROOT)/Carthage/Build/iOS"
 MUON_SEARCH_PATHS[sdk=macosx*] = $(MUON_SYSTEM_LIBRARY) "$(SRCROOT)/Carthage/Build/Mac"
 MUON_SEARCH_PATHS[sdk=iphonesimulator*] = $(MUON_SYSTEM_LIBRARY) "$(SRCROOT)/Carthage/Build/iOS"
-MUON_SEARCH_PATHS[sdk=tvos*] = $(MUON_SYSTEM_LIBRARY) "$(SRCROOT)/Carthage/Build/tvOS"
+MUON_SEARCH_PATHS[sdk=appletv*] = $(MUON_SYSTEM_LIBRARY) "$(SRCROOT)/Carthage/Build/tvOS"
 MUON_SEARCH_PATHS[sdk=watchos*] = $(MUON_SYSTEM_LIBRARY) "$(SRCROOT)/Carthage/Build/watchOS"
 
 //Set the final value for the search paths.
@@ -28,13 +28,13 @@ FRAMEWORK_SEARCH_PATHS = $(MUON_SEARCH_PATHS)
 NIMBLE_PATH[sdk=iphoneos*] = $(SRCROOT)/Carthage/Build/iOS/Nimble.framework
 NIMBLE_PATH[sdk=macosx*] = $(SRCROOT)/Carthage/Build/Mac/Nimble.framework
 NIMBLE_PATH[sdk=iphonesimulator*] = $(SRCROOT)/Carthage/Build/iOS/Nimble.framework
-NIMBLE_PATH[sdk=tvos*] = $(SRCROOT)/Carthage/Build/tvOS/Nimble.framework
+NIMBLE_PATH[sdk=appletv*] = $(SRCROOT)/Carthage/Build/tvOS/Nimble.framework
 NIMBLE_PATH[sdk=watchos*] = $(SRCROOT)/Carthage/Build/watchOS/Nimble.framework
 //Quick.framework
 QUICK_PATH[sdk=iphoneos*] = $(SRCROOT)/Carthage/Build/iOS/Quick.framework
 QUICK_PATH[sdk=macosx*] = $(SRCROOT)/Carthage/Build/Mac/Quick.framework
 QUICK_PATH[sdk=iphonesimulator*] = $(SRCROOT)/Carthage/Build/iOS/Quick.framework
-QUICK_PATH[sdk=tvos*] = $(SRCROOT)/Carthage/Build/tvOS/Quick.framework
+QUICK_PATH[sdk=appletv*] = $(SRCROOT)/Carthage/Build/tvOS/Quick.framework
 QUICK_PATH[sdk=watchos*] = $(SRCROOT)/Carthage/Build/watchOS/Quick.framework
 //watchos not supported
 
