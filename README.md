@@ -1,10 +1,10 @@
-##Muon
+## Muon
 
 RSS/Atom parser written in swift.
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/younata/Muon.svg)](https://travis-ci.org/younata/Muon)
 
-###Usage
+### Usage
 
 ```swift
 import Muon
@@ -22,9 +22,9 @@ parser.failure {
 parser.main() // or add to an OperationQueue
 ```
 
-###Installing
+### Installing
 
-####Carthage
+#### Carthage
 
 Swift 3.0
 
@@ -34,7 +34,7 @@ Swift 2.0-2.2:
 
 * add `github "younata/Muon" "0.5.0"`
 
-####Cocoapods
+#### Cocoapods
 
 Make sure that `use_frameworks!` is defined in your Podfile
 
@@ -46,7 +46,7 @@ Swift 2.0-2.2:
 
 * add `pod "Muon", :git => "https://github.com/younata/Muon.git", :tag => "v0.5.0"`
 
-###ChangeLog
+### ChangeLog
 
 #### 0.6.0
 
