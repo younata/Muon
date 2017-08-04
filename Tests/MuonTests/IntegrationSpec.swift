@@ -4,10 +4,11 @@ import Foundation
 import Muon
 
 class IntegrationSpec: QuickSpec {
+    
     override func spec() {
-        var parser: FeedParser? = nil
-
-        var feed: Feed? = nil
+        
+        var parser: FeedParser?
+        var feed: Feed?
 
         let generateParser : (String) -> FeedParser? = {fileName in
             if let parser = parserWithContentsOfFile(fileName) {
