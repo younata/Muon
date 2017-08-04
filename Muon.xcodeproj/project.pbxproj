@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6696E4B11F350DBA007C9981 /* atom_large.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4A41F350DBA007C9981 /* atom_large.xml */; };
+		6696E4B21F350DBA007C9981 /* atom100.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4A51F350DBA007C9981 /* atom100.xml */; };
+		6696E4B31F350DBA007C9981 /* researchkit.rss in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4A61F350DBA007C9981 /* researchkit.rss */; };
+		6696E4B41F350DBA007C9981 /* rss1_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4A71F350DBA007C9981 /* rss1_large.rss */; };
+		6696E4B51F350DBA007C9981 /* rss2_large.rss in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4A81F350DBA007C9981 /* rss2_large.rss */; };
+		6696E4B61F350DBA007C9981 /* rss091.rss in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4A91F350DBA007C9981 /* rss091.rss */; };
+		6696E4B71F350DBA007C9981 /* rss092.rss in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4AA1F350DBA007C9981 /* rss092.rss */; };
+		6696E4B81F350DBA007C9981 /* rss100.rss in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4AB1F350DBA007C9981 /* rss100.rss */; };
+		6696E4B91F350DBA007C9981 /* rss200.rss in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4AC1F350DBA007C9981 /* rss200.rss */; };
+		6696E4BA1F350DBA007C9981 /* sparkfun.rss in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4AD1F350DBA007C9981 /* sparkfun.rss */; };
+		6696E4BB1F350DBA007C9981 /* sparkfun1.html in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4AE1F350DBA007C9981 /* sparkfun1.html */; };
+		6696E4BC1F350DBA007C9981 /* xkcd.atom in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4AF1F350DBA007C9981 /* xkcd.atom */; };
+		6696E4BD1F350DBA007C9981 /* xkcd.rss in Resources */ = {isa = PBXBuildFile; fileRef = 6696E4B01F350DBA007C9981 /* xkcd.rss */; };
 		OBJ_30 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* Article.swift */; };
 		OBJ_31 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Author.swift */; };
 		OBJ_32 /* Enclosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Enclosure.swift */; };
@@ -33,6 +46,19 @@
 
 /* Begin PBXFileReference section */
 		666A51591F3500750034344F /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		6696E4A41F350DBA007C9981 /* atom_large.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = atom_large.xml; path = Tests/MuonTests/atom_large.xml; sourceTree = "<group>"; };
+		6696E4A51F350DBA007C9981 /* atom100.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = atom100.xml; path = Tests/MuonTests/atom100.xml; sourceTree = "<group>"; };
+		6696E4A61F350DBA007C9981 /* researchkit.rss */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = researchkit.rss; path = Tests/MuonTests/researchkit.rss; sourceTree = "<group>"; };
+		6696E4A71F350DBA007C9981 /* rss1_large.rss */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = rss1_large.rss; path = Tests/MuonTests/rss1_large.rss; sourceTree = "<group>"; };
+		6696E4A81F350DBA007C9981 /* rss2_large.rss */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = rss2_large.rss; path = Tests/MuonTests/rss2_large.rss; sourceTree = "<group>"; };
+		6696E4A91F350DBA007C9981 /* rss091.rss */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = rss091.rss; path = Tests/MuonTests/rss091.rss; sourceTree = "<group>"; };
+		6696E4AA1F350DBA007C9981 /* rss092.rss */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = rss092.rss; path = Tests/MuonTests/rss092.rss; sourceTree = "<group>"; };
+		6696E4AB1F350DBA007C9981 /* rss100.rss */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = rss100.rss; path = Tests/MuonTests/rss100.rss; sourceTree = "<group>"; };
+		6696E4AC1F350DBA007C9981 /* rss200.rss */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = rss200.rss; path = Tests/MuonTests/rss200.rss; sourceTree = "<group>"; };
+		6696E4AD1F350DBA007C9981 /* sparkfun.rss */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = sparkfun.rss; path = Tests/MuonTests/sparkfun.rss; sourceTree = "<group>"; };
+		6696E4AE1F350DBA007C9981 /* sparkfun1.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = sparkfun1.html; path = Tests/MuonTests/sparkfun1.html; sourceTree = "<group>"; };
+		6696E4AF1F350DBA007C9981 /* xkcd.atom */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = xkcd.atom; path = Tests/MuonTests/xkcd.atom; sourceTree = "<group>"; };
+		6696E4B01F350DBA007C9981 /* xkcd.rss */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = xkcd.rss; path = Tests/MuonTests/xkcd.rss; sourceTree = "<group>"; };
 		OBJ_10 /* Enclosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enclosure.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		OBJ_12 /* FeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
@@ -69,6 +95,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6696E4BE1F350DC1007C9981 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6696E4A41F350DBA007C9981 /* atom_large.xml */,
+				6696E4A51F350DBA007C9981 /* atom100.xml */,
+				6696E4A61F350DBA007C9981 /* researchkit.rss */,
+				6696E4A71F350DBA007C9981 /* rss1_large.rss */,
+				6696E4A81F350DBA007C9981 /* rss2_large.rss */,
+				6696E4A91F350DBA007C9981 /* rss091.rss */,
+				6696E4AA1F350DBA007C9981 /* rss092.rss */,
+				6696E4AB1F350DBA007C9981 /* rss100.rss */,
+				6696E4AC1F350DBA007C9981 /* rss200.rss */,
+				6696E4AD1F350DBA007C9981 /* sparkfun.rss */,
+				6696E4AE1F350DBA007C9981 /* sparkfun1.html */,
+				6696E4AF1F350DBA007C9981 /* xkcd.atom */,
+				6696E4B01F350DBA007C9981 /* xkcd.rss */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		OBJ_14 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,17 +145,17 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				666A51591F3500750034344F /* Config.xcconfig */,
 				OBJ_6 /* Package.swift */,
+				6696E4BE1F350DC1007C9981 /* Resources */,
 				OBJ_7 /* Sources */,
 				OBJ_14 /* Tests */,
 				OBJ_21 /* Carthage */,
 				OBJ_22 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -150,6 +196,8 @@
 			buildPhases = (
 				OBJ_41 /* Sources */,
 				OBJ_47 /* Frameworks */,
+				6696E4A21F350A08007C9981 /* ShellScript */,
+				6696E4A31F350D96007C9981 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -176,7 +224,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_22 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -186,6 +234,47 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6696E4A31F350D96007C9981 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6696E4B11F350DBA007C9981 /* atom_large.xml in Resources */,
+				6696E4B21F350DBA007C9981 /* atom100.xml in Resources */,
+				6696E4B31F350DBA007C9981 /* researchkit.rss in Resources */,
+				6696E4B41F350DBA007C9981 /* rss1_large.rss in Resources */,
+				6696E4B51F350DBA007C9981 /* rss2_large.rss in Resources */,
+				6696E4B61F350DBA007C9981 /* rss091.rss in Resources */,
+				6696E4B71F350DBA007C9981 /* rss092.rss in Resources */,
+				6696E4B81F350DBA007C9981 /* rss100.rss in Resources */,
+				6696E4B91F350DBA007C9981 /* rss200.rss in Resources */,
+				6696E4BA1F350DBA007C9981 /* sparkfun.rss in Resources */,
+				6696E4BB1F350DBA007C9981 /* sparkfun1.html in Resources */,
+				6696E4BC1F350DBA007C9981 /* xkcd.atom in Resources */,
+				6696E4BD1F350DBA007C9981 /* xkcd.rss in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6696E4A21F350A08007C9981 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(NIMBLE_PATH)",
+				"$(QUICK_PATH)",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		OBJ_29 /* Sources */ = {
