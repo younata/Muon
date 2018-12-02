@@ -1,9 +1,10 @@
 import Foundation
 
-public enum FeedParserError: Error {
+public enum FeedParserError: Error, Equatable {
     case noFeed
     case noData
     case noFeedParsed
+    case parseError
 
     var localizedDescription: String {
         switch (self) {
@@ -13,13 +14,15 @@ public enum FeedParserError: Error {
             return "Must be configured with data"
         case .noFeedParsed:
             return "Could not parse a feed"
+        case .parseError:
+            return "Could not parse the feed"
         }
     }
 }
 
 public final class FeedParser: Operation, XMLParserDelegate {
     public var completion : (Feed) -> Void = {_ in }
-    public var onFailure : (Error) -> Void = {_ in }
+    public var onFailure : (FeedParserError) -> Void = {_ in }
 
     private var content : Data? = nil
     private var contentString : String? = nil
@@ -29,7 +32,7 @@ public final class FeedParser: Operation, XMLParserDelegate {
         return self
     }
 
-    public func failure(_ failed: @escaping (Error) -> Void) -> FeedParser {
+    public func failure(_ failed: @escaping (FeedParserError) -> Void) -> FeedParser {
         onFailure = failed
         return self
     }
@@ -95,7 +98,7 @@ public final class FeedParser: Operation, XMLParserDelegate {
 
     public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         self.parser = nil
-        self.onFailure(parseError)
+        self.onFailure(.parseError)
     }
 
     private var feed : Feed? = nil
