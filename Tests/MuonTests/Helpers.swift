@@ -26,17 +26,14 @@ enum TestError: Error {
 
 func read(file: String) throws -> String {
     let fileLocation: String
-    #if SWIFT_PACKAGE
+    #if os(Linux)
         fileLocation = FileManager.default.currentDirectoryPath + "/Tests/MuonTests/" + file
     #else
-        #if !os(Linux)
-            guard let location = Bundle(for: AtomPerformanceTest.classForCoder()).path(forResource: file, ofType: nil) else {
-                throw TestError.fileNotFound(file)
-            }
+        if let location = Bundle(for: AtomPerformanceTest.classForCoder()).path(forResource: file, ofType: nil) {
             fileLocation = location
-        #else
-            throw TestError.osNotSupported
-        #endif
+        } else {
+            fileLocation = FileManager.default.currentDirectoryPath + "/Tests/MuonTests/" + file
+        }
     #endif
     guard FileManager.default.fileExists(atPath: fileLocation) else {
         throw TestError.fileNotFound(fileLocation)

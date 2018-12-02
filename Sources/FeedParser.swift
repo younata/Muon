@@ -4,7 +4,7 @@ public enum FeedParserError: Error, Equatable {
     case noFeed
     case noData
     case noFeedParsed
-    case parseError
+    case parseError(Error)
 
     var localizedDescription: String {
         switch (self) {
@@ -14,8 +14,19 @@ public enum FeedParserError: Error, Equatable {
             return "Must be configured with data"
         case .noFeedParsed:
             return "Could not parse a feed"
-        case .parseError:
-            return "Could not parse the feed"
+        case .parseError(let underlyingError):
+            return "Could not parse the feed - \(underlyingError)"
+        }
+    }
+
+    public static func == (lhs: FeedParserError, rhs: FeedParserError) -> Bool {
+        switch (lhs, rhs) {
+        case (.noFeed, .noFeed), (.noData, .noData), (.noFeedParsed, .noFeedParsed):
+            return true
+        case (.parseError(let lhsError), .parseError(let rhsError)):
+            return lhsError as NSError == rhsError as NSError
+        default:
+            return false
         }
     }
 }
@@ -98,7 +109,7 @@ public final class FeedParser: Operation, XMLParserDelegate {
 
     public func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         self.parser = nil
-        self.onFailure(.parseError)
+        self.onFailure(.parseError(parseError))
     }
 
     private var feed : Feed? = nil

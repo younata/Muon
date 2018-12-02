@@ -56,6 +56,12 @@ Swift 2.0-2.2:
 
 ### ChangeLog
 
+#### 0.9.0
+
+- Drop support for swift < 4.0
+- Clean up internal representations based off much newer swift features (this codebase predates swift 1.0!)
+- Better handle how FeedParserError handles other error types.
+
 #### 0.7.0
 
 - Swift 4.0 is supported
