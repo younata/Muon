@@ -17,7 +17,7 @@ class FeedParserSpec: QuickSpec {
             it("call onFailure if main is called") {
                 let expectation = self.expectation(description: "errorShouldBeCalled")
                 _ = subject.failure {error in
-                    expect(error as? FeedParserError).to(equal(FeedParserError.noFeed))
+                    expect(error).to(equal(FeedParserError.noFeed))
                     expectation.fulfill()
                 }
                 subject.main()

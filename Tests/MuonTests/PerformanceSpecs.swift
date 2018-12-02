@@ -5,7 +5,7 @@ import Muon
 
 class RSS1PerformanceTest: XCTestCase {
     func testPerformance() {
-        guard let parser = parserWithContentsOfFile("rss1_large.rss") else {
+        guard let parser = (try? parserWithContentsOfFile("rss1_large.rss")) ?? nil else {
             fail("Unable to test")
             return
         }
@@ -17,7 +17,7 @@ class RSS1PerformanceTest: XCTestCase {
 
 class RSS2PerformanceTest: XCTestCase {
     func testPerformance() {
-        guard let parser = parserWithContentsOfFile("rss2_large.rss") else {
+        guard let parser = (try? parserWithContentsOfFile("rss2_large.rss")) ?? nil else {
             fail("Unable to test")
             return
         }
@@ -29,7 +29,7 @@ class RSS2PerformanceTest: XCTestCase {
 
 class AtomPerformanceTest: XCTestCase {
     func testPerformance() {
-        guard let parser = parserWithContentsOfFile("atom_large.xml") else {
+        guard let parser = (try? parserWithContentsOfFile("atom_large.xml")) ?? nil else {
             fail("Unable to test")
             return
         }

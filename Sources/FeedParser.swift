@@ -104,9 +104,9 @@ public final class FeedParser: Operation, XMLParserDelegate {
     private var feed : Feed? = nil
     private var parser : XMLParser? = nil
 
-    var currentPath : [String] = []
-    var parseStructureAsContent = false
-    var lastAttributes : [String: String] = [:]
+    private var currentPath : [String] = []
+    private var parseStructureAsContent = false
+    private var lastAttributes : [String: String] = [:]
 
     private var feedHelper = FeedHelper()
 
@@ -147,9 +147,9 @@ public final class FeedParser: Operation, XMLParserDelegate {
         var uri : String = ""
     }
 
-    var atomArticleContent : [String] = []
-    var atomXHTMLPath : [String]? = nil
-    var isAtomXHTML : Bool {
+    private var atomArticleContent : [String] = []
+    private var atomXHTMLPath : [String]? = nil
+    private var isAtomXHTML : Bool {
         if let path = atomXHTMLPath {
             if currentPath.count < path.count {
                 return false

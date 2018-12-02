@@ -8,11 +8,9 @@ public struct Article {
     public let updated : Date?
     public let content : String
 
-    private var internalAuthors : [Author]
-    public var authors : [Author] { return internalAuthors }
+    public private(set) var authors : [Author]
 
-    private var internalEnclosures : [Enclosure]
-    public var enclosures : [Enclosure] { return internalEnclosures }
+    public private(set) var enclosures : [Enclosure]
 
     public init(title: String? = nil, link: URL? = nil, description: String? = nil, content: String? = nil, guid: String? = nil,
          published: Date? = nil, updated: Date? = nil, authors: [Author] = [], enclosures: [Enclosure] = []) {
@@ -24,15 +22,15 @@ public struct Article {
         self.updated = updated
         self.content = content ?? ""
 
-        self.internalAuthors = authors
-        self.internalEnclosures = enclosures
+        self.authors = authors
+        self.enclosures = enclosures
     }
 
     mutating func addAuthor(_ author: Author) {
-        self.internalAuthors.append(author)
+        self.authors.append(author)
     }
 
     mutating func addEnclosure(_ enclosure: Enclosure) {
-        self.internalEnclosures.append(enclosure)
+        self.enclosures.append(enclosure)
     }
 }

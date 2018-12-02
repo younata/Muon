@@ -11,14 +11,18 @@ class IntegrationSpec: QuickSpec {
         var feed: Feed?
 
         let generateParser : (String) -> FeedParser? = {fileName in
-            if let parser = parserWithContentsOfFile(fileName) {
-                _ = parser.success { feed = $0; }
-
-                parser.main()
-
-                return parser
+            let parser: FeedParser
+            do {
+                parser = try parserWithContentsOfFile(fileName)
+            } catch let error {
+                fail("Unable to read file at \(fileName), got \(error)")
+                return nil
             }
-            return nil
+            _ = parser.success { feed = $0; }
+
+            parser.main()
+
+            return parser
         }
 
         afterEach {
@@ -79,7 +83,13 @@ class IntegrationSpec: QuickSpec {
                     expect(article.link).to(equal(URL(string: "https://www.sparkfun.com/news/1910")))
                     expect(article.guid).to(equal("urn:uuid:b591fe6f-ed76-e46a-ffc0-66cac3fac399"))
                     expect(article.description).to(equal(""))
-                    let sparkfun1 = read(file: "sparkfun1.html")
+                    let sparkfun1: String?
+                    do {
+                        sparkfun1 = try read(file: "sparkfun1.html")
+                    } catch let error {
+                        fail("Got \(error) trying to read sparkfun1.html")
+                        sparkfun1 = nil
+                    }
                     let loadedString = sparkfun1?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     expect(article.content).to(match(loadedString))
                     let updated = "2015-08-25T08:43:06-06:00".RFC3339Date()

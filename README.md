@@ -2,7 +2,7 @@
 
 RSS/Atom parser written in swift.
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/younata/Muon.svg)](https://travis-ci.org/younata/Muon)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/younata/Muon.svg)](https://travis-ci.org/younata/Muon) [![Build Status](https://ci.younata.com/api/v1/pipelines/Other/jobs/Muon%20Tests/badge)](https://ci.younata.com/teams/main/pipelines/Other/jobs/Muon%20Tests)
 
 ### Usage
 
@@ -26,9 +26,13 @@ parser.main() // or add to an OperationQueue
 
 #### Carthage
 
-Swift 3.0
+Swift 4.0
 
 * add `github "younata/Muon" "master"`
+
+Swift 3.0
+
+* add `github "younata/Muon" "0.7.0"`
 
 Swift 2.0-2.2:
 
@@ -38,15 +42,24 @@ Swift 2.0-2.2:
 
 Make sure that `use_frameworks!` is defined in your Podfile
 
-Swift 3.0:
+Swift 4.0:
 
 * add `pod "Muon", :git => "https://github.com/younata/Muon.git"`
+
+Swift 3.0:
+
+* add `pod "Muon", :git => "https://github.com/younata/Muon.git" :tag => "v0.7.0"`
 
 Swift 2.0-2.2:
 
 * add `pod "Muon", :git => "https://github.com/younata/Muon.git", :tag => "v0.5.0"`
 
 ### ChangeLog
+
+#### 0.7.0
+
+- Swift 4.0 is supported
+- FeedParser now guarantees that errors will always be of type `FeedParserError` (non-FeedParserErrors will be (poorly) wrapped in a `FeedParserError`).
 
 #### 0.6.0
 
