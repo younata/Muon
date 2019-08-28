@@ -1,11 +1,11 @@
 import Foundation
 
-public extension String {
-    public func hasOnlyWhitespace() -> Bool {
+extension String {
+    func hasOnlyWhitespace() -> Bool {
         return rangeOfCharacter(from: CharacterSet.whitespacesAndNewlines.inverted) == nil
     }
 
-    public func RFC822Date() -> Date? {
+    func RFC822Date() -> Date? {
 
         // Process
         var date : Date? = nil
@@ -42,7 +42,7 @@ public extension String {
         return date
     }
 
-    public func RFC3339Date() -> Date? {
+    func RFC3339Date() -> Date? {
         var date : Date? = nil
         let str = uppercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).replacingOccurrences(of: "Z", with: "-0000")
 
@@ -61,7 +61,7 @@ public extension String {
         return date
     }
 
-    public func escapeHtml() -> String{
+    func escapeHtml() -> String{
         var result = replacingOccurrences(of: "&", with: "&amp;")
         result = result.replacingOccurrences(of: "\"", with: "&quot;")
         result = result.replacingOccurrences(of: "'", with: "&#39;")

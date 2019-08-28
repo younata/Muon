@@ -1,11 +1,11 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.0
 import PackageDescription
 
 let package = Package(
     name: "Muon",
     dependencies: [
-        .package(url: "https://github.com/Quick/Quick", .upToNextMinor(from: "1.3.2")),
-        .package(url: "https://github.com/Quick/Nimble", .upToNextMinor(from: "7.3.1"))
+        .package(url: "https://github.com/Quick/Quick", .upToNextMinor(from: "2.1.0")),
+        .package(url: "https://github.com/Quick/Nimble", .upToNextMinor(from: "8.0.2"))
     ],
     targets: [
         .target(name: "Muon", path: "Sources"),

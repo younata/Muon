@@ -1,7 +1,7 @@
 import Quick
 import Nimble
 import Foundation
-import Muon
+@testable import Muon
 
 class StringExtensionSpec: QuickSpec {
     override func spec() {

@@ -1,4 +1,4 @@
-## Muon
+# Muon
 
 RSS/Atom parser written in swift.
 
@@ -22,62 +22,47 @@ parser.failure {
 parser.main() // or add to an OperationQueue
 ```
 
-### Installing
+## Installing
 
-#### Carthage
+### Carthage
 
-Swift 4.0
+* add `github "younata/Muon" "1.0"
 
-* add `github "younata/Muon" "master"`
-
-Swift 3.0
-
-* add `github "younata/Muon" "0.7.0"`
-
-Swift 2.0-2.2:
-
-* add `github "younata/Muon" "0.5.0"`
-
-#### Cocoapods
+### Cocoapods
 
 Make sure that `use_frameworks!` is defined in your Podfile
 
-Swift 4.0:
-
 * add `pod "Muon", :git => "https://github.com/younata/Muon.git"`
 
-Swift 3.0:
+## ChangeLog
 
-* add `pod "Muon", :git => "https://github.com/younata/Muon.git" :tag => "v0.7.0"`
+### 1.0.0
 
-Swift 2.0-2.2:
+- Drop support for swift < 5.0
+- String extensions are no longer public.
 
-* add `pod "Muon", :git => "https://github.com/younata/Muon.git", :tag => "v0.5.0"`
-
-### ChangeLog
-
-#### 0.9.0
+### 0.9.0
 
 - Drop support for swift < 4.0
 - Clean up internal representations based off much newer swift features (this codebase predates swift 1.0!)
 - Better handle how FeedParserError handles other error types.
 
-#### 0.7.0
+### 0.7.0
 
 - Swift 4.0 is supported
 - FeedParser now guarantees that errors will always be of type `FeedParserError` (non-FeedParserErrors will be (poorly) wrapped in a `FeedParserError`).
 
-#### 0.6.0
+### 0.6.0
 
 - Swift 3.0
 - Model objects now import Foundation
 
-#### 0.5.0
+### 0.5.0
 
 - Make Muon models (Feed, Article, Author, Enclosure) into structs
 - Articles now have mostly non-optional properties (going away from the pure RSS/Atom specs to be more opinionated).
 
-#### 0.4.0
+### 0.4.0
 
 - Swift 2.0 Compatibility
 - Enabled for use in extensions
@@ -85,27 +70,27 @@ Swift 2.0-2.2:
 - Less strict on parsing feeds
 - Enabled bitcode
 
-#### 0.3.1
+### 0.3.1
 
 - Last Swift 1.2 release
 
-#### 0.3.0
+### 0.3.0
 
 - Add objc support
 - Enable whole module optimization
 
-#### 0.2.0
+### 0.2.0
 
 - Make FeedParser more injector-friendly
 
-#### 0.1.1
+### 0.1.1
 
 - Makes Public initializers for Feed and Article
 
-#### 0.1.0
+### 0.1.0
 
 - Initial support for RSS 1.0, RSS 2.0, and Atom feeds
 
-### License
+## License
 
 [MIT](LICENSE)

@@ -1,37 +1,29 @@
 import Quick
 import Nimble
 import Foundation
-import Muon
+@testable import Muon
 
 class IntegrationSpec: QuickSpec {
     
     override func spec() {
-        
-        var parser: FeedParser?
         var feed: Feed?
 
-        let generateParser : (String) -> FeedParser? = {fileName in
+        let readFeed : (String) -> Void = {fileName in
             let parser: FeedParser
             do {
                 parser = try parserWithContentsOfFile(fileName)
             } catch let error {
                 fail("Unable to read file at \(fileName), got \(error)")
-                return nil
+                return
             }
             _ = parser.success { feed = $0; }
 
             parser.main()
-
-            return parser
-        }
-
-        afterEach {
-            parser = nil
         }
 
         describe("Apple") {
             beforeEach {
-                parser = generateParser("researchkit.rss")
+                readFeed("researchkit.rss")
             }
 
             it("should parse the feed") {
@@ -65,7 +57,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("Sparkfun") {
             beforeEach {
-                parser = generateParser("sparkfun.rss")
+                readFeed("sparkfun.rss")
             }
 
             it("should parse the feed") {
@@ -102,7 +94,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("xkcd (atom)") {
             beforeEach {
-                parser = generateParser("xkcd.atom")
+                readFeed("xkcd.atom")
             }
 
             it("should parse the feed") {
@@ -132,7 +124,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("xkcd (rss)") {
             beforeEach {
-                parser = generateParser("xkcd.rss")
+                readFeed("xkcd.rss")
             }
 
             it("should parse the feed") {
@@ -163,7 +155,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("RSS 0.91") {
             beforeEach {
-                parser = generateParser("rss091.rss")
+                readFeed("rss091.rss")
             }
 
             it("should parse the feed") {
@@ -190,7 +182,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("RSS 0.92") {
             beforeEach {
-                parser = generateParser("rss092.rss")
+                readFeed("rss092.rss")
             }
 
             it("should parse the feed") {
@@ -223,7 +215,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("RSS 1.0") {
             beforeEach {
-                parser = generateParser("rss100.rss")
+                readFeed("rss100.rss")
             }
 
             it("should parse the feed") {
@@ -253,7 +245,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("RSS 2.0") {
             beforeEach {
-                parser = generateParser("rss200.rss")
+                readFeed("rss200.rss")
             }
 
             it("should parse the feed") {
@@ -291,7 +283,7 @@ class IntegrationSpec: QuickSpec {
 
         describe("Atom 1.0") {
             beforeEach {
-                parser = generateParser("atom100.xml")
+                readFeed("atom100.xml")
             }
 
             it("should parse the feed") {
