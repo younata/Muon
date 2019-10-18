@@ -1,12 +1,17 @@
 import Foundation
 import Muon
-import Nimble
 
 func parserWithContentsOfFile(_ fileName: String) throws -> FeedParser {
     do {
         return FeedParser(string: try read(file: fileName))
     } catch let error {
         throw error
+    }
+}
+
+extension String {
+    func trimmingWhitespace() -> String {
+        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }
 

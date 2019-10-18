@@ -2,7 +2,5 @@ Carthage
 Muon.xcodeproj/project.xcworkspace
 Muon.xcodeproj/xcuserdata
 .build
-fastlane/README.md
-fastlane/report.xml
-
+.swiftpm
 *swp
