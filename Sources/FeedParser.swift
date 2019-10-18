@@ -1,4 +1,7 @@
 import Foundation
+#if os(Linux)
+import FoundationXML
+#endif
 
 public enum FeedParserError: Error, Equatable {
     case noFeed

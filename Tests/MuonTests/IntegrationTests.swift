@@ -19,6 +19,10 @@ class IntegrationTests: XCTestCase {
             feed = $0
             expectation.fulfill()
         }
+        _ = parser.failure { error in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
 
         parser.main()
 
@@ -29,7 +33,7 @@ class IntegrationTests: XCTestCase {
 
     func testParsesResearchKit() {
         guard let feed = readFeed("researchkit.rss") else {
-            return XCTFail("No feed found")
+            return
         }
 
         // feed
@@ -59,7 +63,7 @@ class IntegrationTests: XCTestCase {
 
     func testParsesSparkfun() {
         guard let feed = readFeed("sparkfun.rss") else {
-            return XCTFail("no feed found")
+            return
         }
 
         // feed
@@ -91,7 +95,7 @@ class IntegrationTests: XCTestCase {
 
     func testParsesXKCD_atom() {
         guard let feed = readFeed("xkcd.atom") else {
-            return XCTFail("No feed found")
+            return
         }
 
         XCTAssertEqual(feed.title, "xkcd.com")
@@ -115,7 +119,7 @@ class IntegrationTests: XCTestCase {
 
     func testParsesXKCD_rss() {
         guard let feed = readFeed("xkcd.rss") else {
-            return XCTFail("No feed found")
+            return
         }
 
         XCTAssertEqual(feed.title, "xkcd.com")
@@ -141,7 +145,7 @@ class IntegrationTests: XCTestCase {
 
     func testParsesRSS_0_91() {
         guard let feed = readFeed("rss091.rss") else {
-            return XCTFail("Unable to read feed")
+            return
         }
 
         XCTAssertEqual(feed.title, "WriteTheWeb")
@@ -163,7 +167,7 @@ class IntegrationTests: XCTestCase {
 
     func testParsesRSS_0_92() {
         guard let feed = readFeed("rss092.rss") else {
-            return XCTFail("Unable to read feed")
+            return
         }
 
         XCTAssertEqual(feed.title, "Dave Winer: Grateful Dead")
@@ -194,7 +198,7 @@ class IntegrationTests: XCTestCase {
 
     func testParsesRSS_1_0() {
         guard let feed = readFeed("rss100.rss") else {
-            return XCTFail("Unable to read feed")
+            return
         }
 
         XCTAssertEqual(feed.title, "XML.com")
@@ -221,7 +225,7 @@ class IntegrationTests: XCTestCase {
 
     func testParsesRSS_2_0() {
         guard let feed = readFeed("rss200.rss") else {
-            return XCTFail("Unable to read feed")
+            return
         }
 
         XCTAssertEqual(feed.title, "Liftoff News")
@@ -252,7 +256,7 @@ class IntegrationTests: XCTestCase {
 
     func testParsesAtom_1_0() {
         guard let feed = readFeed("atom100.xml") else {
-            return XCTFail("Unable to read feed")
+            return
         }
 
         XCTAssertEqual(feed.title, "dive into mark")

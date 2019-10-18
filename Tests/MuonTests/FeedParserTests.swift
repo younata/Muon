@@ -21,6 +21,10 @@ class FeedParserTests: XCTestCase {
             XCTAssertNotNil(feed)
             expectation.fulfill()
         }
+        _ = parser.failure { error in
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
         parser.main()
         self.waitForExpectations(timeout: 1, handler: nil)
     }
@@ -28,6 +32,10 @@ class FeedParserTests: XCTestCase {
     func testInitializingWithoutData_ImmediatelyFailsIfMainCalledWithoutConfiguring() {
         let parser = FeedParser()
         let expectation = self.expectation(description: "errorShouldBeCalled")
+        _ = parser.success { feed in
+            XCTAssertNil(feed)
+            expectation.fulfill()
+        }
         _ = parser.failure { error in
             XCTAssertEqual(error, FeedParserError.noData)
             expectation.fulfill()
@@ -41,6 +49,10 @@ class FeedParserTests: XCTestCase {
         let expectation = self.expectation(description: "successShouldBeCalled")
         _ = parser.success { feed in
             XCTAssertNotNil(feed)
+            expectation.fulfill()
+        }
+        _ = parser.failure { error in
+            XCTAssertNil(error)
             expectation.fulfill()
         }
 
