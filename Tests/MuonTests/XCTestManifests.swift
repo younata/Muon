@@ -23,24 +23,6 @@ extension IntegrationTests {
     ]
 }
 
-extension AtomPerformanceTest {
-    static let __allTests = [
-        ("testPerformance", testPerformance)
-    ]
-}
-
-extension RSS1PerformanceTest {
-    static let __allTests = [
-        ("testPerformance", testPerformance)
-    ]
-}
-
-extension RSS2PerformanceTest {
-    static let __allTests = [
-        ("testPerformance", testPerformance)
-    ]
-}
-
 extension StringExtensionTests {
     static let __allTests = [
         ("testOnlyWhitespace", testOnlyWhitespace),
@@ -56,9 +38,6 @@ public func __allTests() -> [XCTestCaseEntry] {
     return [
         testCase(FeedParserTests.__allTests),
         testCase(IntegrationTests.__allTests),
-        testCase(RSS1PerformanceTest.__allTests),
-        testCase(RSS2PerformanceTest.__allTests),
-        testCase(AtomPerformanceTest.__allTests),
         testCase(StringExtensionTests.__allTests),
     ]
 }
