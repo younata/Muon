@@ -11,7 +11,6 @@ extension FeedParserTests {
 
 extension IntegrationTests {
     static let __allTests = [
-        ("testParsesResearchKit", testParsesResearchKit),
         ("testParsesSparkfun", testParsesSparkfun),
         ("testParsesXKCD_atom", testParsesXKCD_atom),
         ("testParsesXKCD_rss", testParsesXKCD_rss),

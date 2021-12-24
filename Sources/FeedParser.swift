@@ -179,7 +179,12 @@ public final class FeedParser: Operation, XMLParserDelegate {
     }
 
     public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String]) {
-        let name = (qName?.range(of: "content") != nil ? "content" : elementName).lowercased()
+        let name: String
+        if qName?.range(of: "content", options: .caseInsensitive, range: nil, locale: nil) != nil {
+            name = "content"
+        } else {
+            name = elementName.lowercased()
+        }
         currentPath.append(name)
 
         if isAtomXHTML {
