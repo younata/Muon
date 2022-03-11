@@ -2,7 +2,7 @@
 
 RSS/Atom parser written in swift.
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/younata/Muon.svg)](https://travis-ci.org/younata/Muon) [![Build Status](https://ci.younata.com/api/v1/pipelines/Other/jobs/Muon%20Tests/badge)](https://ci.younata.com/teams/main/pipelines/Other/jobs/Muon%20Tests)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://ci.younata.com/api/v1/pipelines/other/jobs/muon-tests/badge)](https://ci.younata.com/teams/main/pipelines/other/jobs/muon-tests)
 
 ### Usage
 
